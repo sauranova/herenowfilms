@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Our Work — HereNow Films Pvt Ltd portfolio spanning feature films, brand campaigns, television, and educational content from Gujarat to the world.">
+  <title>Our Work | HereNow Films Pvt Ltd</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ── PAGE-SPECIFIC ENHANCEMENTS ──────────────────────────── */
+
+    /* Ornament divider in page hero */
+    .page-hero-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      margin: 1.8rem auto 1.5rem;
+      max-width: 280px;
+    }
+
+    .page-hero-ornament-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim));
+    }
+
+    .page-hero-ornament-line:last-child {
+      background: linear-gradient(90deg, var(--gold-dim), transparent);
+    }
+
+    .page-hero-ornament-diamond {
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    .page-hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-secondary);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    /* ── IN DEVELOPMENT CARDS ────────────────────────────────── */
+    .dev-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .dev-card {
+      position: relative;
+      aspect-ratio: 2/3;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.4s, transform 0.4s var(--ease-smooth);
+    }
+
+    .dev-card:hover {
+      border-color: var(--border-mid);
+      transform: translateY(-4px);
+    }
+
+    .dev-card-silhouette {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dev-card-silhouette-inner {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 1px solid rgba(215, 20, 113, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dev-card-silhouette-inner svg {
+      width: 36px;
+      height: 36px;
+      fill: rgba(215, 20, 113, 0.12);
+    }
+
+    .dev-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(7, 7, 12, 0.98) 0%,
+        rgba(7, 7, 12, 0.55) 50%,
+        rgba(7, 7, 12, 0.2) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .dev-card-coming-soon {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(215, 20, 113, 0.3);
+      padding: 0.4rem 1.1rem;
+      background: rgba(215, 20, 113, 0.05);
+    }
+
+    .dev-card-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: 0.05em;
+      line-height: 1.35;
+    }
+
+    .dev-card-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    .dev-card-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--crimson), transparent);
+    }
+
+    /* ── PAST CREDITS CARDS ──────────────────────────────────── */
+    .dev-card.past-credit {
+      opacity: 0.7;
+    }
+
+    .dev-card.past-credit:hover {
+      opacity: 0.9;
+    }
+
+    .past-credit-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid rgba(215, 20, 113, 0.15);
+      padding: 0.4rem 1.1rem;
+      background: rgba(215, 20, 113, 0.02);
+    }
+
+    /* ── PULL QUOTE SECTION ──────────────────────────────────── */
+    .quote-section-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .quote-attribution-role {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── STATS ROW ───────────────────────────────────────────── */
+    .films-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+
+    .films-stat {
+      padding: 2rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .films-stat:last-child {
+      border-right: none;
+    }
+
+    .films-stat-num {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .films-stat-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .dev-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .dev-grid .dev-card:last-child {
+        grid-column: span 2;
+        max-width: 360px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .films-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .films-stat:nth-child(2) {
+        border-right: none;
+      }
+      .films-stat:nth-child(3),
+      .films-stat:nth-child(4) {
+        border-top: 1px solid var(--border);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .dev-grid {
+        grid-template-columns: 1fr;
+      }
+      .dev-grid .dev-card:last-child {
+        grid-column: auto;
+        max-width: none;
+      }
+      .films-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── CUSTOM CURSOR ────────────────────────────────────────── -->
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- ── NAVIGATION ──────────────────────────────────────────── -->
+  <nav class="nav scrolled">
+    <a href="index.html" class="nav-brand" aria-label="HereNow Films — Home">
+      <span class="nav-brand-main">HERE•NOW</span>
+      <span class="nav-brand-sub">FILMS</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="films.html" class="active">Films</a></li>
+      <li><a href="mayur.html">Mayur Soneji</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html" class="nav-cta btn btn-gold" style="padding:0.55rem 1.4rem;">Contact</a></li>
+    </ul>
+
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ── PAGE HERO ────────────────────────────────────────────── -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="page-hero-breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        Our Work
+      </p>
+      <h1 class="page-hero-title">Our Work</h1>
+      <div class="page-hero-ornament">
+        <div class="page-hero-ornament-line"></div>
+        <div class="page-hero-ornament-diamond"></div>
+        <div class="page-hero-ornament-diamond" style="background: var(--crimson); width:5px; height:5px;"></div>
+        <div class="page-hero-ornament-diamond"></div>
+        <div class="page-hero-ornament-line"></div>
+      </div>
+      <p class="page-hero-subtitle">
+        Feature films, brand campaigns, television, and educational content — from Gujarat to the world.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── FILMS PORTFOLIO ──────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="feature">Feature Films</button>
+        <button class="filter-btn" data-filter="brand">Brand Films</button>
+        <button class="filter-btn" data-filter="tv">TV &amp; Web</button>
+        <button class="filter-btn" data-filter="education">Education</button>
+      </div>
+
+      <!-- Films Grid -->
+      <div class="films-grid">
+
+        <!-- Card 1: Victor 303 -->
+        <div class="film-card reveal reveal-delay-1" data-genre="feature">
+          <div class="film-poster">
+            <div class="film-poster-art" style="background: linear-gradient(135deg, #0a0010, #1a0030, #0e0820); position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel Decorative', serif; font-size: 1.1rem; font-weight: 700; color: rgba(215, 20, 113, 0.3); text-align: center; padding: 1rem; line-height: 1.35; letter-spacing: 0.06em;">
+              VICTOR 303
+            </div>
+            <div class="film-badge">2025</div>
+            <div class="film-poster-overlay">
+              <div class="film-poster-play">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </div>
+              <div style="font-family:'Cormorant Garamond',serif; font-size:0.85rem; font-style:italic; color:rgba(215,20,113,0.8); margin-top:0.5rem; letter-spacing:0.05em;">Role: Bhaga Bapu</div>
+            </div>
+          </div>
+          <div class="film-info">
+            <div class="film-genre">Action &middot; Drama</div>
+            <h3 class="film-title">Victor 303</h3>
+            <div class="film-meta">
+              <span>Dir. Swapnil Mehta</span>
+              <span class="film-meta-dot"></span>
+              <span>2025</span>
+              <span class="film-meta-dot"></span>
+              <span>Gujarati</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Samandar -->
+        <div class="film-card reveal reveal-delay-2" data-genre="feature">
+          <div class="film-poster">
+            <div class="film-poster-art" style="background: linear-gradient(135deg, #001018, #002030, #001828); position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel Decorative', serif; font-size: 1.1rem; font-weight: 700; color: rgba(215, 20, 113, 0.3); text-align: center; padding: 1rem; line-height: 1.35; letter-spacing: 0.06em;">
+              SAMANDAR
+            </div>
+            <div class="film-badge">2024</div>
+            <div class="film-poster-overlay">
+              <div class="film-poster-play">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="film-info">
+            <div class="film-genre">Gangster &middot; Drama</div>
+            <h3 class="film-title">Samandar</h3>
+            <div class="film-meta">
+              <span>Dir. Vishal Vada Vala</span>
+              <span class="film-meta-dot"></span>
+              <span>2024</span>
+              <span class="film-meta-dot"></span>
+              <span>2h 52m</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Kasoombo -->
+        <div class="film-card reveal reveal-delay-3" data-genre="feature">
+          <div class="film-poster">
+            <div class="film-poster-art" style="background: linear-gradient(135deg, #1a0800, #3d1500, #2d1000); position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel Decorative', serif; font-size: 1.1rem; font-weight: 700; color: rgba(215, 20, 113, 0.3); text-align: center; padding: 1rem; line-height: 1.35; letter-spacing: 0.06em;">
+              KASOOMBO
+            </div>
+            <div class="film-badge">2024</div>
+            <div class="film-poster-overlay">
+              <div class="film-poster-play">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="film-info">
+            <div class="film-genre">Historical &middot; Epic</div>
+            <h3 class="film-title">Kasoombo</h3>
+            <div class="film-meta">
+              <span>Dir. Vijaygiri Bava</span>
+              <span class="film-meta-dot"></span>
+              <span>2024</span>
+              <span class="film-meta-dot"></span>
+              <span>Gujarati</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Vasundhara — Zameen Ke Super Heroes -->
+        <div class="film-card reveal reveal-delay-1" data-genre="brand">
+          <div class="film-poster">
+            <div class="film-poster-art" style="background: linear-gradient(135deg, #0a0e1a, #0e1830, #06101a); position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel Decorative', serif; font-size: 1.1rem; font-weight: 700; color: rgba(215, 20, 113, 0.3); text-align: center; padding: 1rem; line-height: 1.35; letter-spacing: 0.06em;">
+              VASUNDHARA
+            </div>
+            <div class="film-badge">Brand Film</div>
+            <div class="film-poster-overlay">
+              <div class="film-poster-play">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="film-info">
+            <div class="film-genre">Commercial &middot; Brand Film</div>
+            <h3 class="film-title">Vasundhara — Zameen Ke Super Heroes</h3>
+            <div class="film-meta">
+              <span>Client: Vasundhara&#8482;</span>
+              <span class="film-meta-dot"></span>
+              <span>2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: The Māḷu Show -->
+        <div class="film-card reveal reveal-delay-2" data-genre="tv">
+          <div class="film-poster">
+            <div class="film-poster-art" style="background: linear-gradient(135deg, #1a0500, #3d0e00, #1a0800); position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel Decorative', serif; font-size: 1.1rem; font-weight: 700; color: rgba(215, 20, 113, 0.3); text-align: center; padding: 1rem; line-height: 1.35; letter-spacing: 0.06em;">
+              THE M&#x0100;&#x1E37;U SHOW
+            </div>
+            <div class="film-badge">On Air</div>
+            <div class="film-poster-overlay">
+              <div class="film-poster-play">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="film-info">
+            <div class="film-genre">Entertainment &middot; TV</div>
+            <h3 class="film-title">The M&#x0101;&#x1e37;u Show</h3>
+            <div class="film-meta">
+              <span>Premiered Jan 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Saiyar Mori Re -->
+        <div class="film-card reveal reveal-delay-3" data-genre="feature">
+          <div class="film-poster">
+            <div class="film-poster-art" style="background: linear-gradient(135deg, #0a1a00, #182d00, #0a1500); position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel Decorative', serif; font-size: 1.1rem; font-weight: 700; color: rgba(215, 20, 113, 0.3); text-align: center; padding: 1rem; line-height: 1.35; letter-spacing: 0.06em;">
+              SAIYAR MORI RE
+            </div>
+            <div class="film-badge">2022</div>
+            <div class="film-poster-overlay">
+              <div class="film-poster-play">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="5,3 19,12 5,21"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="film-info">
+            <div class="film-genre">Romance &middot; Drama</div>
+            <h3 class="film-title">Saiyar Mori Re</h3>
+            <div class="film-meta">
+              <span>Dir. Vishal Vada Vala</span>
+              <span class="film-meta-dot"></span>
+              <span>2022</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /films-grid -->
+
+      <!-- Films Stats Row -->
+      <div class="films-stats reveal">
+        <div class="films-stat">
+          <span class="films-stat-num" data-count="5" data-suffix="">5</span>
+          <span class="films-stat-label">Feature Films</span>
+        </div>
+        <div class="films-stat">
+          <span class="films-stat-num" data-count="225" data-suffix="+">225+</span>
+          <span class="films-stat-label">Educational Reels</span>
+        </div>
+        <div class="films-stat">
+          <span class="films-stat-num" data-count="4" data-suffix="">4</span>
+          <span class="films-stat-label">Content Categories</span>
+        </div>
+        <div class="films-stat">
+          <span class="films-stat-num" data-count="2018" data-suffix="">2018</span>
+          <span class="films-stat-label">Founded</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FROM THE FILMOGRAPHY ──────────────────────────────────── -->
+  <section class="section section-dark">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-overline">Complete Filmography</span>
+        <h2 class="section-title">From The <span class="highlight">Filmography</span></h2>
+        <div class="section-rule">
+          <div class="section-rule-diamond"></div>
+        </div>
+        <p class="section-desc">
+          Additional credits spanning web series, ensemble features, and supporting roles across Gujarati cinema.
+        </p>
+      </div>
+
+      <div class="dev-grid">
+
+        <!-- Past Credit 1: Vitthal Teedi -->
+        <div class="dev-card past-credit reveal reveal-delay-1">
+          <div class="dev-card-silhouette" style="background: linear-gradient(135deg, #08050e, #100a18);">
+            <div class="dev-card-silhouette-inner">
+              <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="18" width="44" height="30" rx="2" fill="none" stroke="rgba(215,20,113,0.15)" stroke-width="2"/>
+                <polygon points="26,26 42,33 26,40" fill="rgba(215,20,113,0.14)"/>
+              </svg>
+            </div>
+          </div>
+          <div class="dev-card-overlay">
+            <span class="past-credit-label">Past Credit</span>
+            <div class="dev-card-title">Vitthal Teedi</div>
+            <div class="dev-card-year">2021 &nbsp;&middot;&nbsp; OHO Gujarati / ZEE5</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:0.8rem; font-style:italic; color:var(--text-muted); letter-spacing:0.05em;">Dir. Abhishek Jain &nbsp;&middot;&nbsp; IMDb 9.1</div>
+          </div>
+          <div class="dev-card-bar" style="background: linear-gradient(90deg, rgba(215,20,113,0.4), transparent);"></div>
+        </div>
+
+        <!-- Past Credit 2: Bharat Maro Desh -->
+        <div class="dev-card past-credit reveal reveal-delay-2">
+          <div class="dev-card-silhouette" style="background: linear-gradient(135deg, #0e0800, #180e00);">
+            <div class="dev-card-silhouette-inner">
+              <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="22" r="10" fill="rgba(215,20,113,0.12)"/>
+                <path d="M14 52 Q14 38 32 38 Q50 38 50 52" fill="rgba(215,20,113,0.08)"/>
+              </svg>
+            </div>
+          </div>
+          <div class="dev-card-overlay">
+            <span class="past-credit-label">Past Credit</span>
+            <div class="dev-card-title">Bharat Maro Desh</div>
+            <div class="dev-card-year">Gujarati</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:0.8rem; font-style:italic; color:var(--text-muted); letter-spacing:0.05em;">Supporting Role</div>
+          </div>
+          <div class="dev-card-bar" style="background: linear-gradient(90deg, rgba(215,20,113,0.4), transparent);"></div>
+        </div>
+
+        <!-- Past Credit 3: Chhe Paatra -->
+        <div class="dev-card past-credit reveal reveal-delay-3">
+          <div class="dev-card-silhouette" style="background: linear-gradient(135deg, #050e10, #081418);">
+            <div class="dev-card-silhouette-inner">
+              <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="28" r="7" fill="rgba(215,20,113,0.10)"/>
+                <circle cx="44" cy="28" r="7" fill="rgba(215,20,113,0.10)"/>
+                <circle cx="32" cy="20" r="7" fill="rgba(215,20,113,0.14)"/>
+                <path d="M10 50 Q10 42 20 42 Q28 42 32 46 Q36 42 44 42 Q54 42 54 50" fill="rgba(215,20,113,0.07)"/>
+              </svg>
+            </div>
+          </div>
+          <div class="dev-card-overlay">
+            <span class="past-credit-label">Past Credit</span>
+            <div class="dev-card-title">Chhe Paatra</div>
+            <div class="dev-card-year">Gujarati</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:0.8rem; font-style:italic; color:var(--text-muted); letter-spacing:0.05em;">Supporting Role</div>
+          </div>
+          <div class="dev-card-bar" style="background: linear-gradient(90deg, rgba(215,20,113,0.4), transparent);"></div>
+        </div>
+
+      </div>
+      <!-- /dev-grid -->
+
+    </div>
+  </section>
+
+  <!-- ── FOUNDER PULL QUOTE ────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="quote-section-inner reveal">
+
+        <div class="section-header" style="margin-bottom: 2.5rem;">
+          <span class="section-overline">From the Founder</span>
+          <div class="section-rule">
+            <div class="section-rule-diamond"></div>
+          </div>
+        </div>
+
+        <div class="pull-quote">
+          <p class="pull-quote-text">
+            Acting taught me to observe. Filmmaking taught me to create. Teaching taught me to give back. HereNow is all three.
+          </p>
+          <span class="pull-quote-author">
+            &#8212; Mayur Soneji, Founder &amp; Actor
+            <span class="quote-attribution-role">HereNow Films Pvt Ltd</span>
+          </span>
+        </div>
+
+        <div style="text-align: center; margin-top: 3.5rem;">
+          <a href="about.html" class="btn btn-outline">
+            <span>Meet The Team</span>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12,5 19,12 12,19"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <!-- Brand Column -->
+        <div>
+          <span class="footer-brand-name">HERE•NOW FILMS</span>
+          <p class="footer-brand-tagline">Crafting Gujarat's cinematic legacy, one frame at a time.</p>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; max-width: 280px;">
+            A Gujarat-based production house founded by Mayur Soneji &amp; Mitali Mayur Soneji, dedicated to Gujarati film, television, and film education.
+          </p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/hereandnowfilmschool" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Column -->
+        <div>
+          <h4 class="footer-heading">Navigate</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="films.html">Films</a></li>
+            <li><a href="mayur.html">Mayur Soneji</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Films Column -->
+        <div>
+          <h4 class="footer-heading">Our Films</h4>
+          <ul class="footer-links">
+            <li><a href="films.html">Victor 303</a></li>
+            <li><a href="films.html">Samandar</a></li>
+            <li><a href="films.html">Kasoombo</a></li>
+            <li><a href="films.html">Saiyar Mori Re</a></li>
+            <li><a href="films.html">The M&#x0101;&#x1e37;u Show</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Column -->
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links" style="gap: 1rem;">
+            <li>
+              <span style="display:block; font-family:'Cinzel',serif; font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.3rem;">Studio</span>
+              <span style="font-size:0.9rem; color:var(--text-muted); line-height:1.6;">Gujarat, India</span>
+            </li>
+            <li>
+              <span style="display:block; font-family:'Cinzel',serif; font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.3rem;">General</span>
+              <a href="mailto:hello@herenowfilms.in" style="font-size:0.9rem;">hello@herenowfilms.in</a>
+            </li>
+            <li>
+              <span style="display:block; font-family:'Cinzel',serif; font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.3rem;">Press</span>
+              <a href="mailto:press@herenowfilms.in" style="font-size:0.9rem;">press@herenowfilms.in</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <!-- /footer-top -->
+
+      <div class="footer-bottom">
+        <span class="footer-bottom-logo">HNF</span>
+        <span>&copy; 2025 HereNow Films Pvt Ltd. All rights reserved.</span>
+        <span>Gujarat, India</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ── SCRIPTS ──────────────────────────────────────────────── -->
+  <script src="main.js"></script>
+
+</body>
+</html>

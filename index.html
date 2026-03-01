@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HereNow Films Pvt Ltd — Gujarati film school, production house, advertising agency and event management company founded by actor Mayur Soneji.">
+  <title>HereNow Films Pvt Ltd | Film School · Production House · Gujarat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* page-specific patches */
+    .hero-tagline { display:flex; align-items:center; gap:1rem; margin-bottom:2rem; opacity:0; animation:fadeUp 0.8s 0.2s cubic-bezier(.4,0,.2,1) forwards; }
+    .film-poster { position:relative; overflow:hidden; }
+    .film-poster-art { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; font-family:'Cinzel Decorative',serif; color:rgba(215,20,113,0.35); text-align:center; padding:1.5rem; transition:color .3s; }
+    .film-card:hover .film-poster-art { color:rgba(215,20,113,0.55); }
+    .film-poster-art-title { font-size:clamp(.9rem,1.4vw,1.2rem); font-weight:700; letter-spacing:.06em; line-height:1.3; }
+    .film-poster-art-year { font-family:'Cinzel',serif; font-size:.65rem; letter-spacing:.3em; color:rgba(215,20,113,.25); }
+    .news-card-img { position:relative; overflow:hidden; width:100%; aspect-ratio:16/9; }
+    .news-card-img-art { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+    .news-card-img-text { font-family:'Cinzel Decorative',serif; font-size:1.8rem; font-weight:700; color:rgba(215,20,113,.1); letter-spacing:.2em; }
+    .section-cta { text-align:center; margin-top:3rem; }
+    .hero-stat-divider { width:1px; background:rgba(215,20,113,.2); align-self:stretch; }
+    .about-reel-svg { width:160px; height:160px; color:var(--gold-dim); animation:reelSpin 14s linear infinite; }
+    .pull-quote-mark { position:absolute; top:0; left:1rem; font-family:'Cinzel Decorative',serif; font-size:6rem; color:var(--gold-dim); line-height:1; opacity:.4; }
+    .pull-quote-footer { margin-top:1.5rem; display:flex; align-items:center; gap:1rem; }
+    .pull-quote-rule { flex:1; max-width:60px; height:1px; background:var(--gold-dim); }
+    .footer-grid { display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:3rem; }
+    .footer-main { padding:5rem 0 0; }
+    .footer-col-title { font-family:'Cinzel',serif; font-size:.65rem; font-weight:600; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem; }
+    .footer-brand-sub { font-family:'Cinzel',serif; font-size:.5rem; letter-spacing:.5em; color:var(--text-muted); display:block; }
+    .footer-brand { text-decoration:none; display:block; margin-bottom:.5rem; }
+    .footer-contact-item { margin-bottom:1rem; }
+    .footer-contact-label { display:block; font-family:'Cinzel',serif; font-size:.58rem; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:.25rem; }
+    .footer-contact-value { font-size:.9rem; color:var(--text-muted); }
+    a.footer-contact-value { text-decoration:none; transition:color .3s; }
+    a.footer-contact-value:hover { color:var(--text-secondary); }
+    .footer-legal { display:flex; gap:1rem; align-items:center; }
+    .footer-legal-sep { color:var(--text-muted); }
+    a.footer-legal-link { font-family:'Cinzel',serif; font-size:.55rem; letter-spacing:.15em; color:var(--text-muted); text-decoration:none; transition:color .3s; }
+    a.footer-legal-link:hover { color:var(--gold); }
+    .footer-bottom-inner { display:flex; align-items:center; justify-content:space-between; }
+    .footer-copyright { font-family:'Cinzel',serif; font-size:.58rem; letter-spacing:.18em; color:var(--text-muted); }
+    @media(max-width:1024px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:600px){ .footer-grid{grid-template-columns:1fr;} .footer-bottom-inner{flex-direction:column;gap:.75rem;text-align:center;} }
+  </style>
+</head>
+<body>
+
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-main">HERE•NOW</span>
+      <span class="nav-brand-sub">FILMS</span>
+    </a>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="films.html">Films</a></li>
+      <li><a href="mayur.html">Mayur Soneji</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-gold nav-cta">Inquire Now</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-bg-gradient"></div>
+      <div class="hero-film-strip">
+        <div class="hero-film-frame" style="background:linear-gradient(160deg,#1a0005,#3d0010,#1a0820);"></div>
+        <div class="hero-film-frame" style="background:linear-gradient(160deg,#000a1a,#001030,#00051a);"></div>
+        <div class="hero-film-frame" style="background:linear-gradient(160deg,#1a0800,#3d1800,#2d1000);"></div>
+        <div class="hero-film-frame" style="background:linear-gradient(160deg,#0f0018,#200030,#180028);"></div>
+        <div class="hero-film-frame" style="background:linear-gradient(160deg,#1a1200,#2d1e00,#3d2800);"></div>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-tagline">
+        <div class="hero-tagline-line"></div>
+        <span class="hero-tagline-text">Film School · Production House · Est. 2018</span>
+      </div>
+      <h1 class="hero-title">
+        Lights. Camera. <br><span class="gold">Action.</span> <span class="crimson">Learn.</span>
+      </h1>
+      <p class="hero-subtitle">
+        HereNow Films Pvt Ltd — a Gujarati film school, production house, advertising agency and event management company founded by actor Mayur Soneji.
+      </p>
+      <div class="hero-actions">
+        <a href="films.html" class="btn btn-gold">
+          <span>Explore Our Work</span>
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+        </a>
+        <a href="about.html" class="btn btn-outline">Our Story</a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <span class="hero-stat-value" data-count="225" data-suffix="+">225+</span>
+          <span class="hero-stat-label">Content Pieces</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div>
+          <span class="hero-stat-value" data-count="4">4</span>
+          <span class="hero-stat-label">Creative Services</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div>
+          <span class="hero-stat-value" data-count="2018" data-suffix="">2018</span>
+          <span class="hero-stat-label">Year Founded</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span class="hero-scroll-text">Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- AWARDS TICKER -->
+  <div class="awards-strip">
+    <div class="awards-ticker">
+      <span class="award-item"><span class="award-icon">🏆</span><span class="award-text">Film School · Learn Cinema</span></span><span class="award-separator"></span>
+      <span class="award-item"><span class="award-icon">🏆</span><span class="award-text">Brand Films · Vasundhara Campaign</span></span><span class="award-separator"></span>
+      <span class="award-item"><span class="award-icon">🏆</span><span class="award-text">Actor Mayur Soneji · Victor 303 · 2025</span></span><span class="award-separator"></span>
+      <span class="award-item"><span class="award-icon">🏆</span><span class="award-text">The Māḷu Show · Premiered Jan 2026</span></span><span class="award-separator"></span>
+      <span class="award-item"><span class="award-icon">🏆</span><span class="award-text">Event Management · Advertising</span></span><span class="award-separator"></span>
+      <span class="award-item"><span class="award-icon">🏆</span><span class="award-text">Kasoombo 2024 · Samandar 2024</span></span><span class="award-separator"></span>
+      <span class="award-item"><span class="award-icon">🏆</span><span class="award-text">HereNow Films Pvt Ltd · Gujarat</span></span><span class="award-separator"></span>
+      <span class="award-item"><span class="award-icon">🏆</span><span class="award-text">@hereandnowfilmschool · 225+ Posts</span></span><span class="award-separator"></span>
+    </div>
+  </div>
+
+  <!-- FEATURED FILMS -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-overline">Portfolio</span>
+        <h2 class="section-title">Our <span class="highlight">Work</span></h2>
+        <div class="section-rule"><div class="section-rule-diamond"></div></div>
+        <p class="section-desc">From cinematic brand campaigns to Gujarati feature films — storytelling at every scale.</p>
+      </div>
+
+      <div class="films-grid films-grid-featured">
+
+        <!-- Film 1 — featured wide -->
+        <div class="film-card reveal reveal-delay-1">
+          <div class="film-poster" style="aspect-ratio:16/9;">
+            <div class="film-poster-art" style="background:linear-gradient(135deg, #0a0e1a, #0e1830, #1a1028);">
+              <span class="film-poster-art-title">VASUNDHARA</span>
+              <span class="film-poster-art-year">2025</span>
+            </div>
+            <span class="film-badge">Brand Film</span>
+            <div class="film-poster-overlay">
+              <div class="film-poster-play">
+                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="film-info">
+            <div class="film-genre">Commercial · Brand Film</div>
+            <h3 class="film-title">Vasundhara — Zameen Ke Super Heroes</h3>
+            <div class="film-meta">
+              <span>Client: Vasundhara™</span>
+              <span class="film-meta-dot"></span>
+              <span>2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Film 2 -->
+        <div class="film-card reveal reveal-delay-2">
+          <div class="film-poster">
+            <div class="film-poster-art" style="background:linear-gradient(135deg, #1a0800, #3d1800, #2d1200);">
+              <span class="film-poster-art-title">THE MĀḶU SHOW</span>
+              <span class="film-poster-art-year">2026</span>
+            </div>
+            <span class="film-badge">On Air</span>
+            <div class="film-poster-overlay">
+              <div class="film-poster-play">
+                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="film-info">
+            <div class="film-genre">Entertainment · TV Show</div>
+            <h3 class="film-title">The Māḷu Show</h3>
+            <div class="film-meta">
+              <span>Premiered Jan 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Film 3 -->
+        <div class="film-card reveal reveal-delay-3">
+          <div class="film-poster">
+            <div class="film-poster-art" style="background:linear-gradient(135deg, #081a10, #0a2815, #041408);">
+              <span class="film-poster-art-title">FILM SCHOOL</span>
+              <span class="film-poster-art-year">2018–</span>
+            </div>
+            <div class="film-poster-overlay">
+              <div class="film-poster-play">
+                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="film-info">
+            <div class="film-genre">Education · Filmmaking</div>
+            <h3 class="film-title">Here and Now Film School</h3>
+            <div class="film-meta">
+              <span>225+ Posts</span>
+              <span class="film-meta-dot"></span>
+              <span>Ongoing</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="section-cta reveal reveal-delay-4">
+        <a href="films.html" class="btn btn-gold">View All Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER -->
+  <section class="section section-dark reveal">
+    <div class="container">
+      <div class="about-split">
+
+        <div class="about-visual">
+          <div class="about-visual-frame">
+            <div class="about-visual-art">
+              <svg class="about-reel-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="2.5" opacity=".5"/>
+                <circle cx="100" cy="100" r="54" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".3"/>
+                <circle cx="100" cy="100" r="18" fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="100" cy="100" r="7"  fill="currentColor" opacity=".8"/>
+                <circle cx="100" cy="14"   r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="156.6" cy="43.4" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="186"   cy="100" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="156.6" cy="156.6" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="100"   cy="186" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="43.4"  cy="156.6" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="14"    cy="100" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="43.4"  cy="43.4" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="100" y1="82" x2="100" y2="22" stroke="currentColor" stroke-width="1.5" opacity=".45"/>
+                <line x1="114" y1="86" x2="150" y2="50" stroke="currentColor" stroke-width="1.5" opacity=".45"/>
+                <line x1="118" y1="100" x2="179" y2="100" stroke="currentColor" stroke-width="1.5" opacity=".45"/>
+                <line x1="114" y1="114" x2="150" y2="150" stroke="currentColor" stroke-width="1.5" opacity=".45"/>
+                <line x1="100" y1="118" x2="100" y2="179" stroke="currentColor" stroke-width="1.5" opacity=".45"/>
+                <line x1="86" y1="114" x2="50" y2="150" stroke="currentColor" stroke-width="1.5" opacity=".45"/>
+                <line x1="82" y1="100" x2="21" y2="100" stroke="currentColor" stroke-width="1.5" opacity=".45"/>
+                <line x1="86" y1="86" x2="50" y2="50" stroke="currentColor" stroke-width="1.5" opacity=".45"/>
+              </svg>
+            </div>
+            <div class="about-accent-box" data-count="225" data-suffix="+">
+              <span class="about-accent-num">225+</span>
+              <span class="about-accent-label">Creative Works</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <div class="section-header left">
+            <span class="section-overline">Who We Are</span>
+            <h2 class="section-title">Our <span class="highlight">Mission</span></h2>
+            <div class="section-rule"><div class="section-rule-diamond"></div></div>
+          </div>
+          <p class="about-text">
+            HereNow Films Pvt Ltd is a Gujarat-based creative company founded by acclaimed Gujarati actor <strong>Mayur Soneji</strong> and <strong>Mitali Mayur Soneji</strong>. We run a film school, produce cinematic brand content, manage events, and create advertising — all under one roof.
+          </p>
+          <p class="about-text">
+            Our signature production, <em>Vasundhara — Zameen Ke Super Heroes</em>, set a new benchmark for brand storytelling in India. Through our film school, we nurture the next generation of Gujarati filmmakers.
+          </p>
+          <div class="about-values">
+            <div class="about-value">
+              <span class="about-value-icon">🎬</span>
+              <div class="about-value-title">Film School</div>
+              <div class="about-value-desc">Training future filmmakers</div>
+            </div>
+            <div class="about-value">
+              <span class="about-value-icon">🎥</span>
+              <div class="about-value-title">Brand Films</div>
+              <div class="about-value-desc">Cinematic commercial content</div>
+            </div>
+            <div class="about-value">
+              <span class="about-value-icon">🎭</span>
+              <div class="about-value-title">Event Mgmt</div>
+              <div class="about-value-desc">Creative event production</div>
+            </div>
+            <div class="about-value">
+              <span class="about-value-icon">📢</span>
+              <div class="about-value-title">Advertising</div>
+              <div class="about-value-desc">Story-driven ad campaigns</div>
+            </div>
+          </div>
+          <a href="about.html" class="btn btn-gold" style="margin-top:1rem;">Discover Our Story</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST NEWS -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-overline">Press &amp; Media</span>
+        <h2 class="section-title">Latest <span class="highlight">News</span></h2>
+        <div class="section-rule"><div class="section-rule-diamond"></div></div>
+        <p class="section-desc">Stay current with announcements, behind-the-scenes, and festival highlights.</p>
+      </div>
+
+      <div class="news-grid">
+
+        <div class="news-card reveal reveal-delay-1">
+          <div class="news-card-img">
+            <div class="news-card-img-art" style="background:linear-gradient(135deg,#1a0808,#3d1010);">
+              <span class="news-card-img-text">HNF</span>
+            </div>
+          </div>
+          <div class="news-card-body">
+            <div class="news-category">Film Release</div>
+            <h3 class="news-title">Victor 303 — Mayur Soneji's Latest Gujarati Film Releases</h3>
+            <p class="news-excerpt">Mayur Soneji stars as Bhaga Bapu in Victor 303, the Gujarati action drama released January 2025. Written and directed by Swapnil Mehta with a budget of ₹5 Crore, the film has earned an IMDb rating of 8.4.</p>
+            <div class="news-meta">
+              <span>January 2025</span>
+              <a href="news.html" class="news-read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-card reveal reveal-delay-2">
+          <div class="news-card-img">
+            <div class="news-card-img-art" style="background:linear-gradient(135deg,#1a1000,#3d2800);">
+              <span class="news-card-img-text">HNF</span>
+            </div>
+          </div>
+          <div class="news-card-body">
+            <div class="news-category">TV Show</div>
+            <h3 class="news-title">The Māḷu Show Premieres — A New Chapter for HereNow</h3>
+            <p class="news-excerpt">HereNow Films marks its television debut with The Māḷu Show, premiering 11 January 2026. Founder Mayur Soneji takes centre stage in this eagerly awaited Gujarati entertainment production.</p>
+            <div class="news-meta">
+              <span>January 2026</span>
+              <a href="news.html" class="news-read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-card reveal reveal-delay-3">
+          <div class="news-card-img">
+            <div class="news-card-img-art" style="background:linear-gradient(135deg,#080a1a,#10163d);">
+              <span class="news-card-img-text">HNF</span>
+            </div>
+          </div>
+          <div class="news-card-body">
+            <div class="news-category">Brand Film</div>
+            <h3 class="news-title">Vasundhara Brand Film: Zameen Ke Super Heroes</h3>
+            <p class="news-excerpt">HereNow Films produced the cinematic Vasundhara campaign — a brand film series positioning Vasundhara as India's most trusted Earthing &amp; Lightning Arrester brand through powerful superhero storytelling.</p>
+            <div class="news-meta">
+              <span>2025</span>
+              <a href="news.html" class="news-read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="section-cta reveal reveal-delay-4">
+        <a href="news.html" class="btn btn-outline">View All News</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="section section-darker reveal">
+    <div class="container">
+      <div class="pull-quote">
+        <p class="pull-quote-text">
+          Every frame we shoot is a lesson — for our students, our clients, and for ourselves. Cinema is not just our craft; it is our classroom.
+        </p>
+        <div class="pull-quote-footer">
+          <div class="pull-quote-rule"></div>
+          <span class="pull-quote-author">— Mayur Soneji, Founder · HereNow Films Pvt Ltd</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+
+        <div>
+          <a href="index.html" style="text-decoration:none; display:block; margin-bottom:0.3rem;">
+            <span class="footer-brand-name">HERE•NOW FILMS</span>
+          </a>
+          <p class="footer-brand-tagline">Where Every Frame Tells a Story</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Navigate</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="films.html">Films</a></li>
+            <li><a href="mayur.html">Mayur Soneji</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Our Work</h4>
+          <ul class="footer-links">
+            <li><a href="films.html">Victor 303</a></li>
+            <li><a href="films.html">Kasoombo</a></li>
+            <li><a href="films.html">Samandar</a></li>
+            <li><a href="films.html">Vasundhara Brand Film</a></li>
+            <li><a href="films.html">The Māḷu Show</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener">@hereandnowfilmschool</a></li>
+          </ul>
+          <p style="font-family:'Cormorant Garamond',serif; font-size:0.9rem; color:var(--text-muted); margin-top:0.75rem; line-height:1.6;">Gujarat, India</p>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-bottom-logo">HNF</span>
+        <span>&copy; 2025 HereNow Films Pvt Ltd. All rights reserved.</span>
+        <span>Gujarat, India</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

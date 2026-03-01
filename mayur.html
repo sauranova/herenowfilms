@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mayur Soneji — Actor & Founder | HereNow Films</title>
+  <meta name="description" content="Mayur Soneji — Gujarati film actor, storyteller, and founder of HereNow Films. Known for Victor 303, Kasoombo, Samandar, and Saiyar Mori Re.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── MAYUR PAGE SPECIFIC ───────────────────────────────── */
+
+    /* Portrait Hero */
+    .ms-hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--bg-primary);
+    }
+
+    .ms-hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 70% 50%, rgba(215,20,113,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 30% 60%, rgba(26,13,48,0.12) 0%, transparent 55%),
+        linear-gradient(180deg, transparent 40%, var(--bg-primary) 100%);
+      z-index: 1;
+    }
+
+    /* Vertical film strip on left */
+    .ms-filmstrip {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 48px;
+      background: #0a0a0f;
+      border-right: 1px solid rgba(215,20,113,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 0;
+      gap: 0.4rem;
+      z-index: 5;
+      overflow: hidden;
+    }
+
+    .ms-filmstrip-hole {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      background: transparent;
+      border: 1px solid rgba(215,20,113,0.3);
+      flex-shrink: 0;
+    }
+
+    /* Large decorative name */
+    .ms-hero-name-bg {
+      position: absolute;
+      right: -0.05em;
+      bottom: -0.1em;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(8rem, 18vw, 20rem);
+      font-weight: 900;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(215,20,113,0.07);
+      line-height: 0.85;
+      letter-spacing: -0.02em;
+      user-select: none;
+      z-index: 0;
+      white-space: nowrap;
+    }
+
+    .ms-hero-content {
+      position: relative;
+      z-index: 6;
+      width: 100%;
+      padding: 0 4rem 6rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+      gap: 4rem;
+    }
+
+    .ms-hero-left {}
+
+    .ms-hero-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .ms-hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .ms-hero-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 700;
+      line-height: 0.92;
+      color: var(--text-primary);
+      margin-bottom: 0.3em;
+    }
+
+    .ms-hero-title span {
+      display: block;
+      color: var(--gold);
+    }
+
+    .ms-hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: var(--text-secondary);
+      margin-top: 1.5rem;
+      line-height: 1.5;
+      max-width: 480px;
+    }
+
+    .ms-hero-cta-row {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .ms-hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2rem;
+    }
+
+    .ms-stat-block {
+      text-align: right;
+    }
+
+    .ms-stat-number {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .ms-stat-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    /* Portrait frame - placeholder with cinematic styling */
+    .ms-portrait-frame {
+      position: absolute;
+      right: 5vw;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(280px, 30vw, 440px);
+      aspect-ratio: 2/3;
+      z-index: 3;
+    }
+
+    .ms-portrait-inner {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        160deg,
+        rgba(215,20,113,0.12) 0%,
+        rgba(20,20,30,0.9) 40%,
+        rgba(26,13,48,0.15) 100%
+      );
+      border: 1px solid rgba(215,20,113,0.25);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ms-portrait-inner::before {
+      content: 'MS';
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 8rem;
+      font-weight: 900;
+      color: rgba(215,20,113,0.12);
+      position: absolute;
+    }
+
+    .ms-portrait-inner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        0deg,
+        rgba(7,7,12,0.95) 0%,
+        transparent 50%
+      );
+    }
+
+    .ms-portrait-corner {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-color: var(--gold);
+      border-style: solid;
+    }
+
+    .ms-portrait-corner.tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+    .ms-portrait-corner.tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+    .ms-portrait-corner.bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+    .ms-portrait-corner.br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+    /* Gold divider line */
+    .ms-divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 5rem 0 4rem;
+    }
+
+    .ms-divider::before,
+    .ms-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(215,20,113,0.4), transparent);
+    }
+
+    .ms-divider-emblem {
+      font-family: 'Cinzel', serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Bio section */
+    .ms-bio {
+      padding: 8rem 0;
+      background: var(--bg-primary);
+    }
+
+    .ms-bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .ms-bio-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+
+    .ms-bio-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .ms-bio-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(215,20,113,0.3);
+    }
+
+    .ms-bio-headline {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.25;
+    }
+
+    .ms-bio-headline em {
+      font-style: italic;
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15em;
+    }
+
+    .ms-bio-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: var(--text-secondary);
+    }
+
+    .ms-bio-text p + p {
+      margin-top: 1.5em;
+    }
+
+    .ms-bio-text strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Skills / attributes */
+    .ms-attributes {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .ms-attribute {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .ms-attribute-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      min-width: 100px;
+    }
+
+    .ms-attribute-bar {
+      flex: 1;
+      height: 1px;
+      background: rgba(215,20,113,0.15);
+      position: relative;
+    }
+
+    .ms-attribute-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), rgba(215,20,113,0.4));
+      transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .ms-attribute-fill[data-w="0"] { width: 0%; }
+    .ms-attribute-fill.animated[data-w="95"] { width: 95%; }
+    .ms-attribute-fill.animated[data-w="90"] { width: 90%; }
+    .ms-attribute-fill.animated[data-w="85"] { width: 85%; }
+    .ms-attribute-fill.animated[data-w="80"] { width: 80%; }
+
+    /* Filmography */
+    .ms-films {
+      padding: 6rem 0 8rem;
+      background: #060609;
+    }
+
+    .ms-films-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .ms-films-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2px;
+    }
+
+    .ms-film-card {
+      position: relative;
+      aspect-ratio: 3/4;
+      background: var(--bg-secondary);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .ms-film-card:hover {
+      transform: scale(1.02);
+      z-index: 2;
+    }
+
+    .ms-film-poster-art {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Each film gets a unique palette */
+    .ms-film-card[data-film="victor"] .ms-film-poster-art {
+      background: linear-gradient(160deg, #0d1a2a 0%, #1a3a5c 40%, #0a0f1a 100%);
+    }
+    .ms-film-card[data-film="kasoombo"] .ms-film-poster-art {
+      background: linear-gradient(160deg, #0d0015 0%, #2a0040 40%, #8B0E50 70%, #0d0015 100%);
+    }
+    .ms-film-card[data-film="samandar"] .ms-film-poster-art {
+      background: linear-gradient(160deg, #001a1a 0%, #003333 40%, #005555 70%, #001a1a 100%);
+    }
+    .ms-film-card[data-film="saiyar"] .ms-film-poster-art {
+      background: linear-gradient(160deg, #150015 0%, #2a0030 40%, #D71471 70%, #150015 100%);
+    }
+    .ms-film-card[data-film="vitthal"] .ms-film-poster-art {
+      background: linear-gradient(160deg, #0a1a0a 0%, #1a3a1a 40%, #2a5a2a 70%, #0a1a0a 100%);
+    }
+    .ms-film-card[data-film="shoorveer"] .ms-film-poster-art {
+      background: linear-gradient(160deg, #1a0a1a 0%, #3a1a3a 40%, #6a2a5a 70%, #1a0a1a 100%);
+    }
+
+    .ms-film-poster-glyph {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(4rem, 8vw, 7rem);
+      font-weight: 900;
+      color: rgba(255,255,255,0.05);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      user-select: none;
+      text-align: center;
+    }
+
+    .ms-film-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(7,7,12,0.97) 0%, rgba(7,7,12,0.4) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      transition: background 0.4s ease;
+    }
+
+    .ms-film-card:hover .ms-film-overlay {
+      background: linear-gradient(0deg, rgba(7,7,12,1) 0%, rgba(7,7,12,0.6) 60%, rgba(7,7,12,0.2) 100%);
+    }
+
+    .ms-film-year {
+      font-family: 'Cinzel', serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .ms-film-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+
+    .ms-film-character {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .ms-film-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .ms-film-imdb {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(245,197,24,0.12);
+      border: 1px solid rgba(245,197,24,0.3);
+      border-radius: 3px;
+      padding: 0.2rem 0.6rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      color: #F5C518;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .ms-film-type {
+      font-family: 'Cinzel', serif;
+      font-size: 0.5rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid rgba(215,20,113,0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    .ms-film-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-top: 0.8rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+    }
+
+    .ms-film-card:hover .ms-film-desc {
+      max-height: 100px;
+      opacity: 1;
+    }
+
+    /* Quote section */
+    .ms-quote {
+      padding: 8rem 0;
+      background: var(--bg-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ms-quote::before {
+      content: '"';
+      position: absolute;
+      left: -0.1em;
+      top: -0.2em;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(15rem, 30vw, 35rem);
+      color: rgba(215,20,113,0.04);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .ms-quote-inner {
+      position: relative;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .ms-quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--text-primary);
+      margin-bottom: 2.5rem;
+    }
+
+    .ms-quote-attr {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Connect section */
+    .ms-connect {
+      padding: 6rem 0 8rem;
+      background: #060609;
+      text-align: center;
+    }
+
+    .ms-connect-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .ms-connect-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border: 1px solid rgba(215,20,113,0.25);
+      padding: 1rem 2rem;
+      transition: all 0.35s ease;
+    }
+
+    .ms-connect-link:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: rgba(215,20,113,0.05);
+    }
+
+    .ms-connect-link svg {
+      flex-shrink: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .ms-hero-content {
+        grid-template-columns: 1fr;
+        padding: 0 2rem 5rem 4rem;
+        gap: 3rem;
+      }
+
+      .ms-hero-right {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      .ms-stat-block { text-align: left; }
+
+      .ms-portrait-frame {
+        display: none;
+      }
+
+      .ms-bio-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .ms-bio-sidebar { position: static; }
+    }
+
+    @media (max-width: 600px) {
+      .ms-hero-content {
+        padding: 0 1.5rem 4rem 3.5rem;
+      }
+
+      .ms-films-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .ms-connect-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Film grain overlay -->
+  <div class="film-grain"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-main">HERE•NOW</span>
+      <span class="nav-brand-sub">FILMS</span>
+    </a>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="films.html">Films</a></li>
+      <li><a href="mayur.html" class="active">Mayur Soneji</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-gold nav-cta">Inquire Now</a>
+  </nav>
+
+  <!-- ── HERO ───────────────────────────────────────────────── -->
+  <section class="ms-hero">
+    <div class="ms-hero-bg"></div>
+
+    <!-- Film strip -->
+    <div class="ms-filmstrip">
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+    </div>
+
+    <!-- Large ghost name -->
+    <div class="ms-hero-name-bg" aria-hidden="true">MAYUR</div>
+
+    <!-- Portrait frame -->
+    <div class="ms-portrait-frame" aria-hidden="true">
+      <div class="ms-portrait-inner">
+        <div class="ms-portrait-corner tl"></div>
+        <div class="ms-portrait-corner tr"></div>
+        <div class="ms-portrait-corner bl"></div>
+        <div class="ms-portrait-corner br"></div>
+      </div>
+    </div>
+
+    <div class="ms-hero-content">
+      <div class="ms-hero-left reveal">
+        <div class="ms-hero-eyebrow">Gujarati Cinema</div>
+        <h1 class="ms-hero-title">
+          Mayur<br>
+          <span>Soneji</span>
+        </h1>
+        <p class="ms-hero-subtitle">
+          Actor. Storyteller. Educator.<br>
+          Crafting characters that endure across frames.
+        </p>
+        <div class="ms-hero-cta-row">
+          <a href="#filmography" class="btn btn-gold">View Filmography</a>
+          <a href="https://www.imdb.com/name/nm12721531/" target="_blank" rel="noopener" class="btn btn-outline">IMDb Profile</a>
+        </div>
+      </div>
+
+      <div class="ms-hero-right reveal" style="animation-delay:0.2s">
+        <div class="ms-stat-block">
+          <div class="ms-stat-number">6+</div>
+          <div class="ms-stat-label">Film Credits</div>
+        </div>
+        <div class="ms-stat-block">
+          <div class="ms-stat-number">8.4</div>
+          <div class="ms-stat-label">Peak IMDb Rating</div>
+        </div>
+        <div class="ms-stat-block">
+          <div class="ms-stat-number">2018</div>
+          <div class="ms-stat-label">Founded HereNow</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BIO ───────────────────────────────────────────────── -->
+  <section class="ms-bio">
+    <div class="container">
+      <div class="ms-divider">
+        <div class="ms-divider-emblem">The Artist</div>
+      </div>
+
+      <div class="ms-bio-grid">
+        <div class="ms-bio-sidebar reveal">
+          <div class="ms-bio-label">Biography</div>
+          <h2 class="ms-bio-headline">
+            A voice for<br>
+            <em>Gujarat's soul</em><br>
+            on screen
+          </h2>
+
+          <div class="ms-attributes">
+            <div class="ms-attribute">
+              <span class="ms-attribute-label">Acting</span>
+              <div class="ms-attribute-bar">
+                <div class="ms-attribute-fill" data-w="95"></div>
+              </div>
+            </div>
+            <div class="ms-attribute">
+              <span class="ms-attribute-label">Direction</span>
+              <div class="ms-attribute-bar">
+                <div class="ms-attribute-fill" data-w="80"></div>
+              </div>
+            </div>
+            <div class="ms-attribute">
+              <span class="ms-attribute-label">Production</span>
+              <div class="ms-attribute-bar">
+                <div class="ms-attribute-fill" data-w="90"></div>
+              </div>
+            </div>
+            <div class="ms-attribute">
+              <span class="ms-attribute-label">Education</span>
+              <div class="ms-attribute-bar">
+                <div class="ms-attribute-fill" data-w="85"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ms-bio-text reveal" style="animation-delay:0.15s">
+          <p>
+            <strong>Mayur Soneji</strong> is one of Gujarati cinema's most committed voices — an actor who doesn't simply inhabit roles, but builds entire emotional worlds within them. From the rugged moral complexity of <strong>Bhaga Bapu</strong> in Victor 303 to the stoic historical grandeur of <strong>Jadavbha</strong> in Kasoombo, his work is defined by an unflinching authenticity rooted in the culture and landscape of Gujarat.
+          </p>
+          <p>
+            His path into cinema was never about stardom. It was about stories — the kind that don't get told unless someone refuses to look away. Raised with a deep reverence for Gujarati language, folklore, and community, Mayur brings an insider's understanding to every character, whether a village patriarch, a gangster forged by circumstance, or a father defined by sacrifice.
+          </p>
+          <p>
+            In 2018, Mayur and his partner <strong>Mitali Mayur Soneji</strong> founded <strong>HereNow Films Pvt Ltd</strong> — not just as a production house, but as an institution. The company's Here and Now Film School has become a genuine creative incubator, training the next generation of Gujarati filmmakers with the same rigour and passion that Mayur brings to his own work on screen. Over 225 pieces of content, countless workshops, and a growing community of young filmmakers stand as testament to this mission.
+          </p>
+          <p>
+            Beyond the screen, Mayur's presence on social media — with 14,000+ followers on <a href="https://www.instagram.com/actormayursoneji" target="_blank" rel="noopener" style="color:var(--gold); text-decoration:none;">@actormayursoneji</a> — reflects an artist who stays deeply connected to his audience, sharing process, craft, and the real texture of creative life in Gujarat.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FILMOGRAPHY ────────────────────────────────────────── -->
+  <section class="ms-films" id="filmography">
+    <div class="container">
+      <div class="ms-films-header reveal">
+        <div class="section-eyebrow">Complete Filmography</div>
+        <h2 class="section-title">On Screen</h2>
+      </div>
+    </div>
+
+    <div class="ms-films-grid reveal" style="animation-delay:0.1s">
+
+      <!-- Victor 303 -->
+      <div class="ms-film-card" data-film="victor">
+        <div class="ms-film-poster-art">
+          <div class="ms-film-poster-glyph">303</div>
+        </div>
+        <div class="ms-film-overlay">
+          <div class="ms-film-year">2025</div>
+          <div class="ms-film-title">Victor 303</div>
+          <div class="ms-film-character">as Bhaga Bapu</div>
+          <div class="ms-film-meta">
+            <span class="ms-film-imdb">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H10V22H14V2ZM4 8H0V22H4V8ZM20 8H16V22H20V8Z"/></svg>
+              8.4 / 10
+            </span>
+            <span class="ms-film-type">Feature Film</span>
+          </div>
+          <div class="ms-film-desc">
+            A gripping crime drama with a ₹5 crore budget. Bhaga Bapu is a man of deep contradictions — loyal yet ruthless, principled yet dangerous.
+          </div>
+        </div>
+      </div>
+
+      <!-- Kasoombo -->
+      <div class="ms-film-card" data-film="kasoombo">
+        <div class="ms-film-poster-art">
+          <div class="ms-film-poster-glyph">KSB</div>
+        </div>
+        <div class="ms-film-overlay">
+          <div class="ms-film-year">2024</div>
+          <div class="ms-film-title">Kasoombo</div>
+          <div class="ms-film-character">as Jadavbha</div>
+          <div class="ms-film-meta">
+            <span class="ms-film-imdb">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H10V22H14V2ZM4 8H0V22H4V8ZM20 8H16V22H20V8Z"/></svg>
+              8.4 / 10
+            </span>
+            <span class="ms-film-type">Historical Epic</span>
+          </div>
+          <div class="ms-film-desc">
+            Directed by Vijaygiri Bava. A sweeping historical drama exploring Gujarati heritage and resistance. Jadavbha is a monument of stoic dignity.
+          </div>
+        </div>
+      </div>
+
+      <!-- Samandar -->
+      <div class="ms-film-card" data-film="samandar">
+        <div class="ms-film-poster-art">
+          <div class="ms-film-poster-glyph">सम</div>
+        </div>
+        <div class="ms-film-overlay">
+          <div class="ms-film-year">2024</div>
+          <div class="ms-film-title">Samandar</div>
+          <div class="ms-film-character">as Ratansi</div>
+          <div class="ms-film-meta">
+            <span class="ms-film-imdb">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H10V22H14V2ZM4 8H0V22H4V8ZM20 8H16V22H20V8Z"/></svg>
+              7.7 / 10
+            </span>
+            <span class="ms-film-type">Gangster Drama</span>
+          </div>
+          <div class="ms-film-desc">
+            A raw and visceral gangster drama set against the coastal landscapes of Gujarat. Ratansi is a man swallowed and shaped by the sea.
+          </div>
+        </div>
+      </div>
+
+      <!-- Saiyar Mori Re -->
+      <div class="ms-film-card" data-film="saiyar">
+        <div class="ms-film-poster-art">
+          <div class="ms-film-poster-glyph">SMR</div>
+        </div>
+        <div class="ms-film-overlay">
+          <div class="ms-film-year">2022</div>
+          <div class="ms-film-title">Saiyar Mori Re</div>
+          <div class="ms-film-character">as Bapu</div>
+          <div class="ms-film-meta">
+            <span class="ms-film-imdb">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H10V22H14V2ZM4 8H0V22H4V8ZM20 8H16V22H20V8Z"/></svg>
+              8.1 / 10
+            </span>
+            <span class="ms-film-type">Romantic Drama</span>
+          </div>
+          <div class="ms-film-desc">
+            A tender romantic drama rooted in Gujarati village life. Bapu's quiet authority and warmth anchor the film's emotional core.
+          </div>
+        </div>
+      </div>
+
+      <!-- Vitthal Teedi -->
+      <div class="ms-film-card" data-film="vitthal">
+        <div class="ms-film-poster-art">
+          <div class="ms-film-poster-glyph">VT</div>
+        </div>
+        <div class="ms-film-overlay">
+          <div class="ms-film-year">2021</div>
+          <div class="ms-film-title">Vitthal Teedi</div>
+          <div class="ms-film-character">Supporting Role</div>
+          <div class="ms-film-meta">
+            <span class="ms-film-type">Feature Film</span>
+          </div>
+          <div class="ms-film-desc">
+            An early Gujarati feature that marked Mayur's entry into the industry's mainstream conversation with a memorable supporting turn.
+          </div>
+        </div>
+      </div>
+
+      <!-- Shoorveer -->
+      <div class="ms-film-card" data-film="shoorveer">
+        <div class="ms-film-poster-art">
+          <div class="ms-film-poster-glyph">SHR</div>
+        </div>
+        <div class="ms-film-overlay">
+          <div class="ms-film-year">Web Series</div>
+          <div class="ms-film-title">Shoorveer</div>
+          <div class="ms-film-character">Supporting Role</div>
+          <div class="ms-film-meta">
+            <span class="ms-film-type">Digital Series</span>
+          </div>
+          <div class="ms-film-desc">
+            Expanding beyond film into digital storytelling, Shoorveer demonstrates Mayur's versatility across formats and narrative scales.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── QUOTE ──────────────────────────────────────────────── -->
+  <section class="ms-quote">
+    <div class="container">
+      <div class="ms-quote-inner reveal">
+        <p class="ms-quote-text">
+          "Cinema is not just our craft; it is our classroom. Every character I play teaches me something about what it means to be human — and that lesson belongs to every student who walks into our school."
+        </p>
+        <div class="ms-quote-attr">— Mayur Soneji</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONNECT ────────────────────────────────────────────── -->
+  <section class="ms-connect">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-eyebrow">Follow the Journey</div>
+        <h2 class="section-title">Connect with Mayur</h2>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--text-muted); margin-top:1rem; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;">
+          Stay close to the work — behind-the-scenes, craft, and the real texture of making Gujarati cinema.
+        </p>
+      </div>
+      <div class="ms-connect-links reveal" style="animation-delay:0.15s">
+        <a href="https://www.instagram.com/actormayursoneji" target="_blank" rel="noopener" class="ms-connect-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          @actormayursoneji
+        </a>
+        <a href="https://www.imdb.com/name/nm12721531/" target="_blank" rel="noopener" class="ms-connect-link">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M14 2H10V22H14V2ZM4 8H0V22H4V8ZM20 8H16V22H20V8Z"/>
+          </svg>
+          IMDb Profile
+        </a>
+        <a href="https://www.instagram.com/hereandnowfilmschool" target="_blank" rel="noopener" class="ms-connect-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          HereNow Films School
+        </a>
+        <a href="contact.html" class="ms-connect-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Work Together
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+
+        <div>
+          <a href="index.html" style="text-decoration:none; display:block; margin-bottom:0.3rem;">
+            <span class="footer-brand-name">HERE•NOW FILMS</span>
+          </a>
+          <p class="footer-brand-tagline">Where Every Frame Tells a Story</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Navigate</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="films.html">Films</a></li>
+            <li><a href="mayur.html">Mayur Soneji</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Our Work</h4>
+          <ul class="footer-links">
+            <li><a href="films.html">Victor 303</a></li>
+            <li><a href="films.html">Kasoombo</a></li>
+            <li><a href="films.html">Samandar</a></li>
+            <li><a href="films.html">Vasundhara Brand Film</a></li>
+            <li><a href="films.html">The Māḷu Show</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener">@hereandnowfilmschool</a></li>
+          </ul>
+          <p style="font-family:'Cormorant Garamond',serif; font-size:0.9rem; color:var(--text-muted); margin-top:0.75rem; line-height:1.6;">Gujarat, India</p>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-bottom-logo">HNF</span>
+        <span>&copy; 2025 HereNow Films Pvt Ltd. All rights reserved.</span>
+        <span>Gujarat, India</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    /* Animate attribute bars on scroll */
+    (function() {
+      const fills = document.querySelectorAll('.ms-attribute-fill');
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      fills.forEach(function(fill) { observer.observe(fill); });
+    })();
+  </script>
+</body>
+</html>
