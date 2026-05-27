@@ -1,1090 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mayur Soneji — Actor & Founder | HereNow Films</title>
-  <meta name="description" content="Mayur Soneji — Gujarati film actor, storyteller, and founder of HereNow Films. Known for Victor 303, Kasoombo, Samandar, and Saiyar Mori Re.">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Special+Elite&display=swap" rel="stylesheet">
-
-  <style>
-    /* ── MAYUR PAGE SPECIFIC ───────────────────────────────── */
-
-    /* Portrait Hero */
-    .ms-hero {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      background: var(--bg-primary);
-    }
-
-    .ms-hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 80% at 70% 50%, rgba(215,20,113,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 60% at 30% 60%, rgba(26,13,48,0.12) 0%, transparent 55%),
-        linear-gradient(180deg, transparent 40%, var(--bg-primary) 100%);
-      z-index: 1;
-    }
-
-    /* Vertical film strip on left */
-    .ms-filmstrip {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 48px;
-      background: #0a0a0f;
-      border-right: 1px solid rgba(215,20,113,0.15);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem 0;
-      gap: 0.4rem;
-      z-index: 5;
-      overflow: hidden;
-    }
-
-    .ms-filmstrip-hole {
-      width: 10px;
-      height: 10px;
-      border-radius: 2px;
-      background: transparent;
-      border: 1px solid rgba(215,20,113,0.3);
-      flex-shrink: 0;
-    }
-
-    /* Large decorative name */
-    .ms-hero-name-bg {
-      position: absolute;
-      right: -0.05em;
-      bottom: -0.1em;
-      font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(8rem, 18vw, 20rem);
-      font-weight: 900;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(215,20,113,0.07);
-      line-height: 0.85;
-      letter-spacing: -0.02em;
-      user-select: none;
-      z-index: 0;
-      white-space: nowrap;
-    }
-
-    .ms-hero-content {
-      position: relative;
-      z-index: 6;
-      width: 100%;
-      padding: 0 4rem 6rem 6rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: end;
-      gap: 4rem;
-    }
-
-    .ms-hero-left {}
-
-    .ms-hero-eyebrow {
-      font-family: 'Cinzel', serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.5em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .ms-hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    .ms-hero-title {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(3.5rem, 7vw, 7rem);
-      font-weight: 700;
-      line-height: 0.92;
-      color: var(--text-primary);
-      margin-bottom: 0.3em;
-    }
-
-    .ms-hero-title span {
-      display: block;
-      color: var(--gold);
-    }
-
-    .ms-hero-subtitle {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: clamp(1.1rem, 2vw, 1.5rem);
-      color: var(--text-secondary);
-      margin-top: 1.5rem;
-      line-height: 1.5;
-      max-width: 480px;
-    }
-
-    .ms-hero-cta-row {
-      display: flex;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-      flex-wrap: wrap;
-    }
-
-    .ms-hero-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 2rem;
-    }
-
-    .ms-stat-block {
-      text-align: right;
-    }
-
-    .ms-stat-number {
-      font-family: 'Cinzel', serif;
-      font-size: 3rem;
-      font-weight: 600;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .ms-stat-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-top: 0.3rem;
-    }
-
-    /* Portrait frame - placeholder with cinematic styling */
-    .ms-portrait-frame {
-      position: absolute;
-      right: 5vw;
-      top: 50%;
-      transform: translateY(-50%);
-      width: clamp(280px, 30vw, 440px);
-      aspect-ratio: 2/3;
-      z-index: 3;
-    }
-
-    .ms-portrait-inner {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        160deg,
-        rgba(215,20,113,0.12) 0%,
-        rgba(20,20,30,0.9) 40%,
-        rgba(26,13,48,0.15) 100%
-      );
-      border: 1px solid rgba(215,20,113,0.25);
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ms-portrait-inner::before {
-      content: 'MS';
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 8rem;
-      font-weight: 900;
-      color: rgba(215,20,113,0.12);
-      position: absolute;
-    }
-
-    .ms-portrait-inner::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        0deg,
-        rgba(7,7,12,0.95) 0%,
-        transparent 50%
-      );
-    }
-
-    .ms-portrait-corner {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border-color: var(--gold);
-      border-style: solid;
-    }
-
-    .ms-portrait-corner.tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-    .ms-portrait-corner.tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
-    .ms-portrait-corner.bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
-    .ms-portrait-corner.br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
-
-    /* Gold divider line */
-    .ms-divider {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin: 5rem 0 4rem;
-    }
-
-    .ms-divider::before,
-    .ms-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(215,20,113,0.4), transparent);
-    }
-
-    .ms-divider-emblem {
-      font-family: 'Cinzel', serif;
-      font-size: 0.55rem;
-      letter-spacing: 0.5em;
-      color: var(--gold);
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    /* Bio section */
-    .ms-bio {
-      padding: 8rem 0;
-      background: var(--bg-primary);
-    }
-
-    .ms-bio-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 6rem;
-      align-items: start;
-    }
-
-    .ms-bio-sidebar {
-      position: sticky;
-      top: 100px;
-    }
-
-    .ms-bio-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.55rem;
-      letter-spacing: 0.5em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .ms-bio-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(215,20,113,0.3);
-    }
-
-    .ms-bio-headline {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-      font-weight: 500;
-      color: var(--text-primary);
-      line-height: 1.25;
-    }
-
-    .ms-bio-headline em {
-      font-style: italic;
-      color: var(--gold);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15em;
-    }
-
-    .ms-bio-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      line-height: 1.9;
-      color: var(--text-secondary);
-    }
-
-    .ms-bio-text p + p {
-      margin-top: 1.5em;
-    }
-
-    .ms-bio-text strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    /* Skills / attributes */
-    .ms-attributes {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .ms-attribute {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .ms-attribute-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.55rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      min-width: 100px;
-    }
-
-    .ms-attribute-bar {
-      flex: 1;
-      height: 1px;
-      background: rgba(215,20,113,0.15);
-      position: relative;
-    }
-
-    .ms-attribute-fill {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      background: linear-gradient(90deg, var(--gold), rgba(215,20,113,0.4));
-      transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .ms-attribute-fill[data-w="0"] { width: 0%; }
-    .ms-attribute-fill.animated[data-w="95"] { width: 95%; }
-    .ms-attribute-fill.animated[data-w="90"] { width: 90%; }
-    .ms-attribute-fill.animated[data-w="85"] { width: 85%; }
-    .ms-attribute-fill.animated[data-w="80"] { width: 80%; }
-
-    /* Filmography */
-    .ms-films {
-      padding: 6rem 0 8rem;
-      background: #060609;
-    }
-
-    .ms-films-header {
-      text-align: center;
-      margin-bottom: 5rem;
-    }
-
-    .ms-films-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2px;
-    }
-
-    .ms-film-card {
-      position: relative;
-      aspect-ratio: 3/4;
-      background: var(--bg-secondary);
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .ms-film-card:hover {
-      transform: scale(1.02);
-      z-index: 2;
-    }
-
-    .ms-film-poster-art {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    /* Each film gets a unique palette */
-    .ms-film-card[data-film="victor"] .ms-film-poster-art {
-      background: linear-gradient(160deg, #0d1a2a 0%, #1a3a5c 40%, #0a0f1a 100%);
-    }
-    .ms-film-card[data-film="kasoombo"] .ms-film-poster-art {
-      background: linear-gradient(160deg, #0d0015 0%, #2a0040 40%, #8B0E50 70%, #0d0015 100%);
-    }
-    .ms-film-card[data-film="samandar"] .ms-film-poster-art {
-      background: linear-gradient(160deg, #001a1a 0%, #003333 40%, #005555 70%, #001a1a 100%);
-    }
-    .ms-film-card[data-film="saiyar"] .ms-film-poster-art {
-      background: linear-gradient(160deg, #150015 0%, #2a0030 40%, #D71471 70%, #150015 100%);
-    }
-    .ms-film-card[data-film="vitthal"] .ms-film-poster-art {
-      background: linear-gradient(160deg, #0a1a0a 0%, #1a3a1a 40%, #2a5a2a 70%, #0a1a0a 100%);
-    }
-    .ms-film-card[data-film="shoorveer"] .ms-film-poster-art {
-      background: linear-gradient(160deg, #1a0a1a 0%, #3a1a3a 40%, #6a2a5a 70%, #1a0a1a 100%);
-    }
-
-    .ms-film-poster-glyph {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(4rem, 8vw, 7rem);
-      font-weight: 900;
-      color: rgba(255,255,255,0.05);
-      line-height: 1;
-      letter-spacing: -0.02em;
-      user-select: none;
-      text-align: center;
-    }
-
-    .ms-film-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, rgba(7,7,12,0.97) 0%, rgba(7,7,12,0.4) 50%, transparent 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 2rem;
-      transition: background 0.4s ease;
-    }
-
-    .ms-film-card:hover .ms-film-overlay {
-      background: linear-gradient(0deg, rgba(7,7,12,1) 0%, rgba(7,7,12,0.6) 60%, rgba(7,7,12,0.2) 100%);
-    }
-
-    .ms-film-year {
-      font-family: 'Cinzel', serif;
-      font-size: 0.55rem;
-      letter-spacing: 0.4em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .ms-film-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1.2;
-      margin-bottom: 0.4rem;
-    }
-
-    .ms-film-character {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-    }
-
-    .ms-film-meta {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .ms-film-imdb {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: rgba(245,197,24,0.12);
-      border: 1px solid rgba(245,197,24,0.3);
-      border-radius: 3px;
-      padding: 0.2rem 0.6rem;
-      font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
-      color: #F5C518;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
-
-    .ms-film-type {
-      font-family: 'Cinzel', serif;
-      font-size: 0.5rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      border: 1px solid rgba(215,20,113,0.2);
-      padding: 0.2rem 0.6rem;
-      border-radius: 2px;
-    }
-
-    .ms-film-desc {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-top: 0.8rem;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, opacity 0.4s ease;
-      opacity: 0;
-    }
-
-    .ms-film-card:hover .ms-film-desc {
-      max-height: 100px;
-      opacity: 1;
-    }
-
-    /* Quote section */
-    .ms-quote {
-      padding: 8rem 0;
-      background: var(--bg-primary);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ms-quote::before {
-      content: '"';
-      position: absolute;
-      left: -0.1em;
-      top: -0.2em;
-      font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(15rem, 30vw, 35rem);
-      color: rgba(215,20,113,0.04);
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .ms-quote-inner {
-      position: relative;
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .ms-quote-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-      font-weight: 300;
-      line-height: 1.5;
-      color: var(--text-primary);
-      margin-bottom: 2.5rem;
-    }
-
-    .ms-quote-attr {
-      font-family: 'Cinzel', serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    /* Connect section */
-    .ms-connect {
-      padding: 6rem 0 8rem;
-      background: #060609;
-      text-align: center;
-    }
-
-    .ms-connect-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 3rem;
-      flex-wrap: wrap;
-    }
-
-    .ms-connect-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      text-decoration: none;
-      border: 1px solid rgba(215,20,113,0.25);
-      padding: 1rem 2rem;
-      transition: all 0.35s ease;
-    }
-
-    .ms-connect-link:hover {
-      color: var(--gold);
-      border-color: var(--gold);
-      background: rgba(215,20,113,0.05);
-    }
-
-    .ms-connect-link svg {
-      flex-shrink: 0;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .ms-hero-content {
-        grid-template-columns: 1fr;
-        padding: 0 2rem 5rem 4rem;
-        gap: 3rem;
-      }
-
-      .ms-hero-right {
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: flex-start;
-      }
-
-      .ms-stat-block { text-align: left; }
-
-      .ms-portrait-frame {
-        display: none;
-      }
-
-      .ms-bio-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-
-      .ms-bio-sidebar { position: static; }
-    }
-
-    @media (max-width: 600px) {
-      .ms-hero-content {
-        padding: 0 1.5rem 4rem 3.5rem;
-      }
-
-      .ms-films-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .ms-connect-links {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mayur Soneji — Actor · Founder · HERE&NOW Films</title>
+<meta name="description" content="Mayur Soneji — Gujarati film actor, storyteller, and founder of HereNow Films. Known for Victor 303, Kasoombo, Samandar.">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "surface-container-high": "#2a2a2a",
+        "on-primary-container": "#fff2f3",
+        "tertiary": "#7ad0ff",
+        "surface-container-lowest": "#0e0e0e",
+        "surface-variant": "#353534",
+        "surface-tint": "#ffb1c6",
+        "on-secondary-container": "#725f00",
+        "secondary-container": "#ffdb3c",
+        "on-primary": "#650031",
+        "on-tertiary-container": "#eaf6ff",
+        "on-tertiary": "#003549",
+        "surface-container-low": "#1c1b1b",
+        "surface-container": "#201f1f",
+        "background": "#131313",
+        "surface-container-highest": "#353534",
+        "primary": "#ffb1c6",
+        "on-background": "#e5e2e1",
+        "on-surface-variant": "#e2bdc6",
+        "surface": "#131313",
+        "tertiary-container": "#0078a2",
+        "on-surface": "#e5e2e1",
+        "secondary-fixed-dim": "#e9c400",
+        "primary-container": "#d71471"
+      },
+      fontFamily: { "syne": ["Syne","sans-serif"], "mont": ["Montserrat","sans-serif"] }
+    }
+  }
+}
+</script>
+<style>
+html { scroll-behavior: smooth; }
+body { background: #131313; color: #e5e2e1; }
+.card-hover { transition: transform 0.3s ease; }
+.card-hover:hover { transform: scale(1.02); }
+.play-btn { opacity: 0; transition: opacity 0.3s; }
+.group:hover .play-btn { opacity: 1; }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.cursor-dot { position: fixed; top: -4px; left: -4px; width: 8px; height: 8px; background: #ffb1c6; border-radius: 50%; pointer-events: none; z-index: 9999; transition: opacity 0.3s; }
+.cursor-ring { position: fixed; top: -18px; left: -18px; width: 36px; height: 36px; border: 2px solid rgba(255,177,198,0.4); border-radius: 50%; pointer-events: none; z-index: 9998; transition: width 0.3s, height 0.3s, opacity 0.3s; }
+.cursor-ring.hover { width: 52px; height: 52px; top: -26px; left: -26px; border-color: #d71471; }
+.nav-active { color: #ffb1c6 !important; border-bottom: 2px solid #ffb1c6; padding-bottom: 4px; }
+.nav-links { display: none; }
+.nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: #131313; padding: 2rem; gap: 1.5rem; z-index: 40; }
+@media(min-width:768px) { .nav-links { display: flex !important; } }
+.hamburger span { display: block; width: 24px; height: 2px; background: #ffb1c6; margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+.skill-track { height: 6px; background: #353534; position: relative; }
+.skill-fill { height: 100%; width: 0; transition: width 1.2s ease; }
+</style>
 </head>
-<body>
+<body class="font-mont antialiased overflow-x-hidden">
 
-  <!-- Film grain overlay -->
-  <div class="film-grain"></div>
-
-  <!-- Custom cursor -->
-  <div class="cursor"></div>
-  <div class="cursor-ring"></div>
-
-  <!-- NAV -->
-  <nav class="nav">
-    <a href="index.html" class="nav-brand">
-      <span class="nav-brand-main">HERE•NOW</span>
-      <span class="nav-brand-sub">FILMS</span>
-    </a>
-    <button class="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="films.html">Films</a></li>
-      <li><a href="mayur.html" class="active">Mayur Soneji</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <a href="contact.html" class="btn btn-gold nav-cta">Inquire Now</a>
+<!-- Nav -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-16 py-4 bg-background/90 backdrop-blur-md border-b-4 border-primary">
+  <a href="index.html" class="font-syne text-2xl md:text-3xl font-extrabold tracking-tighter uppercase">HERE&NOW FILMS</a>
+  <nav class="nav-links gap-8 items-center text-sm font-bold uppercase tracking-wider">
+    <a class="nav-link hover:text-primary transition-colors" href="index.html">Home</a>
+    <a class="nav-link hover:text-primary transition-colors" href="films.html">Films</a>
+    <a class="nav-link hover:text-primary transition-colors" href="mayur.html">Mayur Soneji</a>
+    <a class="nav-link hover:text-primary transition-colors" href="about.html">About</a>
+    <a class="nav-link hover:text-primary transition-colors" href="news.html">News</a>
+    <a class="nav-link hover:text-primary transition-colors" href="contact.html">Contact</a>
   </nav>
+  <a href="contact.html" class="hidden md:block bg-primary text-background font-bold text-sm px-6 py-3 uppercase tracking-wider border-2 border-primary hover:bg-surface-tint active:scale-95 transition-all">Inquire Now</a>
+  <button class="hamburger md:hidden"><span></span><span></span><span></span></button>
+</header>
 
-  <!-- ── HERO ───────────────────────────────────────────────── -->
-  <section class="ms-hero">
-    <div class="ms-hero-bg"></div>
+<main class="pt-[80px]">
 
-    <!-- Film strip -->
-    <div class="ms-filmstrip">
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
-      <div class="ms-filmstrip-hole"></div><div class="ms-filmstrip-hole"></div>
+<!-- Hero -->
+<section class="py-24 md:py-32 px-4 md:px-16 border-b-4 border-secondary-container relative overflow-hidden">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-syne text-[200px] md:text-[400px] font-extrabold text-primary opacity-[0.03] leading-none select-none pointer-events-none uppercase">MAYUR</div>
+  <div class="max-w-[1440px] mx-auto relative z-10">
+    <p class="font-bold text-xs uppercase tracking-[0.3em] text-tertiary mb-3">Gujarati Cinema</p>
+    <h1 class="font-syne text-5xl md:text-8xl font-extrabold uppercase mb-4">Mayur <span class="text-secondary-container">Soneji</span></h1>
+    <p class="text-on-surface-variant text-lg max-w-2xl mb-8">Actor. Storyteller. Educator. Crafting characters that endure across frames.</p>
+    <div class="flex flex-wrap gap-4 mb-12">
+      <a href="#filmography" class="bg-secondary-container text-background font-bold text-sm px-8 py-4 uppercase tracking-wider hover:bg-secondary-fixed-dim transition-colors">View Filmography</a>
+      <a href="https://www.imdb.com/name/nm12721531/" target="_blank" rel="noopener" class="border-2 border-primary text-primary font-bold text-sm px-8 py-4 uppercase tracking-wider hover:bg-primary hover:text-background transition-colors">IMDb Profile</a>
     </div>
-
-    <!-- Large ghost name -->
-    <div class="ms-hero-name-bg" aria-hidden="true">MAYUR</div>
-
-    <!-- Portrait frame -->
-    <div class="ms-portrait-frame" aria-hidden="true">
-      <div class="ms-portrait-inner">
-        <div class="ms-portrait-corner tl"></div>
-        <div class="ms-portrait-corner tr"></div>
-        <div class="ms-portrait-corner bl"></div>
-        <div class="ms-portrait-corner br"></div>
+    <div class="flex gap-8 md:gap-16">
+      <div>
+        <h3 class="font-syne text-4xl md:text-5xl font-extrabold text-tertiary" data-count="6" data-suffix="+">0</h3>
+        <p class="font-bold text-xs uppercase tracking-widest mt-1">Film Credits</p>
+      </div>
+      <div>
+        <h3 class="font-syne text-4xl md:text-5xl font-extrabold text-secondary-container">8.4</h3>
+        <p class="font-bold text-xs uppercase tracking-widest mt-1">Peak IMDb Rating</p>
+      </div>
+      <div>
+        <h3 class="font-syne text-4xl md:text-5xl font-extrabold text-primary" data-count="2018">0</h3>
+        <p class="font-bold text-xs uppercase tracking-widest mt-1">Founded HereNow</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="ms-hero-content">
-      <div class="ms-hero-left reveal">
-        <div class="ms-hero-eyebrow">Gujarati Cinema</div>
-        <h1 class="ms-hero-title">
-          Mayur<br>
-          <span>Soneji</span>
-        </h1>
-        <p class="ms-hero-subtitle">
-          Actor. Storyteller. Educator.<br>
-          Crafting characters that endure across frames.
-        </p>
-        <div class="ms-hero-cta-row">
-          <a href="#filmography" class="btn btn-gold">View Filmography</a>
-          <a href="https://www.imdb.com/name/nm12721531/" target="_blank" rel="noopener" class="btn btn-outline">IMDb Profile</a>
+<!-- Bio -->
+<section class="py-24 md:py-32 px-4 md:px-16">
+  <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
+    <!-- Sidebar -->
+    <div class="md:col-span-4 reveal">
+      <p class="font-bold text-xs uppercase tracking-[0.3em] text-primary mb-3">Biography</p>
+      <h2 class="font-syne text-3xl md:text-4xl font-extrabold uppercase mb-8">A voice for Gujarat's soul on screen</h2>
+      <div class="space-y-6">
+        <div>
+          <div class="flex justify-between mb-2"><span class="font-bold text-xs uppercase tracking-wider">Acting</span><span class="text-tertiary text-xs font-bold">95%</span></div>
+          <div class="skill-track"><div class="skill-fill bg-tertiary" data-width="95%"></div></div>
         </div>
-      </div>
-
-      <div class="ms-hero-right reveal" style="animation-delay:0.2s">
-        <div class="ms-stat-block">
-          <div class="ms-stat-number">6+</div>
-          <div class="ms-stat-label">Film Credits</div>
+        <div>
+          <div class="flex justify-between mb-2"><span class="font-bold text-xs uppercase tracking-wider">Direction</span><span class="text-primary text-xs font-bold">80%</span></div>
+          <div class="skill-track"><div class="skill-fill bg-primary" data-width="80%"></div></div>
         </div>
-        <div class="ms-stat-block">
-          <div class="ms-stat-number">8.4</div>
-          <div class="ms-stat-label">Peak IMDb Rating</div>
+        <div>
+          <div class="flex justify-between mb-2"><span class="font-bold text-xs uppercase tracking-wider">Production</span><span class="text-secondary-container text-xs font-bold">90%</span></div>
+          <div class="skill-track"><div class="skill-fill bg-secondary-container" data-width="90%"></div></div>
         </div>
-        <div class="ms-stat-block">
-          <div class="ms-stat-number">2018</div>
-          <div class="ms-stat-label">Founded HereNow</div>
+        <div>
+          <div class="flex justify-between mb-2"><span class="font-bold text-xs uppercase tracking-wider">Education</span><span class="text-tertiary text-xs font-bold">85%</span></div>
+          <div class="skill-track"><div class="skill-fill bg-tertiary" data-width="85%"></div></div>
         </div>
       </div>
     </div>
-  </section>
+    <!-- Content -->
+    <div class="md:col-span-8 reveal">
+      <p class="text-on-surface-variant leading-relaxed mb-6">Mayur Soneji is a Gujarati film actor whose career spans feature films, brand campaigns, television, and education. A performer who commands both the stage and the camera, he has built a reputation for roles that dig into the complexity of Gujarat's cultural fabric — from historical epics to gritty gangster dramas.</p>
+      <p class="text-on-surface-variant leading-relaxed mb-6">In 2018, alongside <strong class="text-on-surface">Mitali Mayur Soneji</strong>, he co-founded <strong class="text-primary">HereNow Films Pvt Ltd</strong> — a production house, film school, advertising agency, and event management company all rolled into one. What started as a passion project has grown into Gujarat's most ambitious creative studio, with over <strong class="text-secondary-container">225+ content pieces</strong> produced and a growing community of <strong class="text-tertiary">14,000+ Instagram followers</strong> at <a href="https://www.instagram.com/actormayursoneji/" target="_blank" class="text-tertiary hover:underline">@actormayursoneji</a>.</p>
+      <p class="text-on-surface-variant leading-relaxed mb-6">His philosophy is simple: cinema is the most powerful classroom. Every role he takes, every film HereNow produces, and every student who walks through the film school's doors is part of the same mission — to elevate Gujarati storytelling to a national and global stage.</p>
+      <p class="text-on-surface-variant leading-relaxed">Most recently, he portrayed <strong class="text-tertiary">Bhaga Bapu</strong> in the action drama <strong class="text-tertiary">Victor 303</strong> (2025, IMDb 8.4) and <strong class="text-tertiary">Jadavbha</strong> in the historical epic <strong class="text-tertiary">Kasoombo</strong> (2024). Both films cemented his place as one of Gujarati cinema's most compelling actors.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- ── BIO ───────────────────────────────────────────────── -->
-  <section class="ms-bio">
-    <div class="container">
-      <div class="ms-divider">
-        <div class="ms-divider-emblem">The Artist</div>
-      </div>
-
-      <div class="ms-bio-grid">
-        <div class="ms-bio-sidebar reveal">
-          <div class="ms-bio-label">Biography</div>
-          <h2 class="ms-bio-headline">
-            A voice for<br>
-            <em>Gujarat's soul</em><br>
-            on screen
-          </h2>
-
-          <div class="ms-attributes">
-            <div class="ms-attribute">
-              <span class="ms-attribute-label">Acting</span>
-              <div class="ms-attribute-bar">
-                <div class="ms-attribute-fill" data-w="95"></div>
-              </div>
-            </div>
-            <div class="ms-attribute">
-              <span class="ms-attribute-label">Direction</span>
-              <div class="ms-attribute-bar">
-                <div class="ms-attribute-fill" data-w="80"></div>
-              </div>
-            </div>
-            <div class="ms-attribute">
-              <span class="ms-attribute-label">Production</span>
-              <div class="ms-attribute-bar">
-                <div class="ms-attribute-fill" data-w="90"></div>
-              </div>
-            </div>
-            <div class="ms-attribute">
-              <span class="ms-attribute-label">Education</span>
-              <div class="ms-attribute-bar">
-                <div class="ms-attribute-fill" data-w="85"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ms-bio-text reveal" style="animation-delay:0.15s">
-          <p>
-            <strong>Mayur Soneji</strong> is one of Gujarati cinema's most committed voices — an actor who doesn't simply inhabit roles, but builds entire emotional worlds within them. From the rugged moral complexity of <strong>Bhaga Bapu</strong> in Victor 303 to the stoic historical grandeur of <strong>Jadavbha</strong> in Kasoombo, his work is defined by an unflinching authenticity rooted in the culture and landscape of Gujarat.
-          </p>
-          <p>
-            His path into cinema was never about stardom. It was about stories — the kind that don't get told unless someone refuses to look away. Raised with a deep reverence for Gujarati language, folklore, and community, Mayur brings an insider's understanding to every character, whether a village patriarch, a gangster forged by circumstance, or a father defined by sacrifice.
-          </p>
-          <p>
-            In 2018, Mayur and his partner <strong>Mitali Mayur Soneji</strong> founded <strong>HereNow Films Pvt Ltd</strong> — not just as a production house, but as an institution. The company's Here and Now Film School has become a genuine creative incubator, training the next generation of Gujarati filmmakers with the same rigour and passion that Mayur brings to his own work on screen. Over 225 pieces of content, countless workshops, and a growing community of young filmmakers stand as testament to this mission.
-          </p>
-          <p>
-            Beyond the screen, Mayur's presence on social media — with 14,000+ followers on <a href="https://www.instagram.com/actormayursoneji" target="_blank" rel="noopener" style="color:var(--gold); text-decoration:none;">@actormayursoneji</a> — reflects an artist who stays deeply connected to his audience, sharing process, craft, and the real texture of creative life in Gujarat.
-          </p>
+<!-- Video Feature -->
+<section class="py-16 px-4 md:px-16 bg-surface-container-low border-y-4 border-secondary-container">
+  <div class="max-w-[1440px] mx-auto reveal">
+    <a href="https://www.youtube.com/watch?v=XfU3NAH0DAE" target="_blank" rel="noopener" class="block group relative overflow-hidden border-4 border-secondary-container max-w-4xl mx-auto">
+      <img src="https://img.youtube.com/vi/XfU3NAH0DAE/maxresdefault.jpg" alt="Konnect with Kalakaar - Mayur Soneji" class="w-full aspect-video object-cover"/>
+      <div class="absolute inset-0 bg-background/40 group-hover:bg-background/20 transition-colors"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-20 h-20 bg-secondary-container rounded-full flex items-center justify-center opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all">
+          <span class="material-symbols-outlined text-4xl text-background" style="font-variation-settings:'FILL' 1">play_arrow</span>
         </div>
       </div>
-    </div>
-  </section>
+      <div class="absolute bottom-4 left-4"><span class="bg-background/80 text-secondary-container font-bold text-xs px-3 py-1 uppercase tracking-wider">Konnect with Kalakaar · Episode 2</span></div>
+    </a>
+  </div>
+</section>
 
-  <!-- ── FILMOGRAPHY ────────────────────────────────────────── -->
-  <section class="ms-films" id="filmography">
-    <div class="container">
-      <div class="ms-films-header reveal">
-        <div class="section-eyebrow">Complete Filmography</div>
-        <h2 class="section-title">On Screen</h2>
-      </div>
+<!-- Filmography -->
+<section id="filmography" class="py-24 md:py-32 px-4 md:px-16">
+  <div class="max-w-[1440px] mx-auto">
+    <div class="mb-16 reveal">
+      <p class="font-bold text-xs uppercase tracking-[0.3em] text-secondary-container mb-3">Career</p>
+      <h2 class="font-syne text-4xl md:text-6xl font-extrabold uppercase">Filmo<span class="text-primary">graphy</span></h2>
     </div>
-
-    <div class="ms-films-grid reveal" style="animation-delay:0.1s">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
       <!-- Victor 303 -->
-      <div class="ms-film-card" data-film="victor">
-        <div class="ms-film-poster-art">
-          <div class="ms-film-poster-glyph">303</div>
+      <div class="border-4 border-tertiary p-6 card-hover reveal">
+        <div class="flex justify-between items-start mb-4">
+          <span class="bg-tertiary text-background font-bold text-[10px] px-2 py-1 uppercase tracking-wider">IMDb 8.4</span>
+          <span class="text-on-surface-variant text-xs font-bold">2025</span>
         </div>
-        <div class="ms-film-overlay">
-          <div class="ms-film-year">2025</div>
-          <div class="ms-film-title">Victor 303</div>
-          <div class="ms-film-character">as Bhaga Bapu</div>
-          <div class="ms-film-meta">
-            <span class="ms-film-imdb">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H10V22H14V2ZM4 8H0V22H4V8ZM20 8H16V22H20V8Z"/></svg>
-              8.4 / 10
-            </span>
-            <span class="ms-film-type">Feature Film</span>
-          </div>
-          <div class="ms-film-desc">
-            A gripping crime drama with a ₹5 crore budget. Bhaga Bapu is a man of deep contradictions — loyal yet ruthless, principled yet dangerous.
-          </div>
-        </div>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-2">Victor 303</h3>
+        <p class="text-tertiary font-bold text-sm uppercase mb-2">Role: Bhaga Bapu</p>
+        <p class="text-on-surface-variant text-sm">Action & Drama · Dir. Swapnil Mehta · Gujarati · ₹5 crore budget</p>
       </div>
 
       <!-- Kasoombo -->
-      <div class="ms-film-card" data-film="kasoombo">
-        <div class="ms-film-poster-art">
-          <div class="ms-film-poster-glyph">KSB</div>
+      <div class="border-4 border-secondary-container p-6 card-hover reveal">
+        <div class="flex justify-between items-start mb-4">
+          <span class="bg-secondary-container text-background font-bold text-[10px] px-2 py-1 uppercase tracking-wider">IMDb 8.4</span>
+          <span class="text-on-surface-variant text-xs font-bold">2024</span>
         </div>
-        <div class="ms-film-overlay">
-          <div class="ms-film-year">2024</div>
-          <div class="ms-film-title">Kasoombo</div>
-          <div class="ms-film-character">as Jadavbha</div>
-          <div class="ms-film-meta">
-            <span class="ms-film-imdb">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H10V22H14V2ZM4 8H0V22H4V8ZM20 8H16V22H20V8Z"/></svg>
-              8.4 / 10
-            </span>
-            <span class="ms-film-type">Historical Epic</span>
-          </div>
-          <div class="ms-film-desc">
-            Directed by Vijaygiri Bava. A sweeping historical drama exploring Gujarati heritage and resistance. Jadavbha is a monument of stoic dignity.
-          </div>
-        </div>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-2">Kasoombo</h3>
+        <p class="text-secondary-container font-bold text-sm uppercase mb-2">Role: Jadavbha</p>
+        <p class="text-on-surface-variant text-sm">Historical Epic · Dir. Vijaygiri Bava · Gujarati</p>
       </div>
 
       <!-- Samandar -->
-      <div class="ms-film-card" data-film="samandar">
-        <div class="ms-film-poster-art">
-          <div class="ms-film-poster-glyph">सम</div>
+      <div class="border-4 border-tertiary p-6 card-hover reveal">
+        <div class="flex justify-between items-start mb-4">
+          <span class="bg-tertiary/20 text-tertiary font-bold text-[10px] px-2 py-1 border border-tertiary">IMDb 7.7</span>
+          <span class="text-on-surface-variant text-xs font-bold">2024</span>
         </div>
-        <div class="ms-film-overlay">
-          <div class="ms-film-year">2024</div>
-          <div class="ms-film-title">Samandar</div>
-          <div class="ms-film-character">as Ratansi</div>
-          <div class="ms-film-meta">
-            <span class="ms-film-imdb">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H10V22H14V2ZM4 8H0V22H4V8ZM20 8H16V22H20V8Z"/></svg>
-              7.7 / 10
-            </span>
-            <span class="ms-film-type">Gangster Drama</span>
-          </div>
-          <div class="ms-film-desc">
-            A raw and visceral gangster drama set against the coastal landscapes of Gujarat. Ratansi is a man swallowed and shaped by the sea.
-          </div>
-        </div>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-2">Samandar</h3>
+        <p class="text-tertiary font-bold text-sm uppercase mb-2">Role: Ratansi</p>
+        <p class="text-on-surface-variant text-sm">Gangster Drama · Dir. Vishal Vada Vala · 2h 52m · Gujarati</p>
       </div>
 
       <!-- Saiyar Mori Re -->
-      <div class="ms-film-card" data-film="saiyar">
-        <div class="ms-film-poster-art">
-          <div class="ms-film-poster-glyph">SMR</div>
+      <div class="border-4 border-primary p-6 card-hover reveal">
+        <div class="flex justify-between items-start mb-4">
+          <span class="bg-primary/20 text-primary font-bold text-[10px] px-2 py-1 border border-primary">IMDb 8.1</span>
+          <span class="text-on-surface-variant text-xs font-bold">2022</span>
         </div>
-        <div class="ms-film-overlay">
-          <div class="ms-film-year">2022</div>
-          <div class="ms-film-title">Saiyar Mori Re</div>
-          <div class="ms-film-character">as Bapu</div>
-          <div class="ms-film-meta">
-            <span class="ms-film-imdb">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H10V22H14V2ZM4 8H0V22H4V8ZM20 8H16V22H20V8Z"/></svg>
-              8.1 / 10
-            </span>
-            <span class="ms-film-type">Romantic Drama</span>
-          </div>
-          <div class="ms-film-desc">
-            A tender romantic drama rooted in Gujarati village life. Bapu's quiet authority and warmth anchor the film's emotional core.
-          </div>
-        </div>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-2">Saiyar Mori Re</h3>
+        <p class="text-primary font-bold text-sm uppercase mb-2">Role: Bapu</p>
+        <p class="text-on-surface-variant text-sm">Romantic Drama · Dir. Vishal Vada Vala · Gujarati</p>
       </div>
 
       <!-- Vitthal Teedi -->
-      <div class="ms-film-card" data-film="vitthal">
-        <div class="ms-film-poster-art">
-          <div class="ms-film-poster-glyph">VT</div>
+      <div class="border-4 border-surface-variant p-6 card-hover reveal">
+        <div class="flex justify-between items-start mb-4">
+          <span class="bg-tertiary/20 text-tertiary font-bold text-[10px] px-2 py-1 border border-tertiary">IMDb 9.1</span>
+          <span class="text-on-surface-variant text-xs font-bold">2021</span>
         </div>
-        <div class="ms-film-overlay">
-          <div class="ms-film-year">2021</div>
-          <div class="ms-film-title">Vitthal Teedi</div>
-          <div class="ms-film-character">Supporting Role</div>
-          <div class="ms-film-meta">
-            <span class="ms-film-type">Feature Film</span>
-          </div>
-          <div class="ms-film-desc">
-            An early Gujarati feature that marked Mayur's entry into the industry's mainstream conversation with a memorable supporting turn.
-          </div>
-        </div>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-2">Vitthal Teedi</h3>
+        <p class="text-on-surface-variant font-bold text-sm uppercase mb-2">Supporting</p>
+        <p class="text-on-surface-variant text-sm">Feature Film · Dir. Abhishek Jain · OHO Gujarati / ZEE5</p>
       </div>
 
       <!-- Shoorveer -->
-      <div class="ms-film-card" data-film="shoorveer">
-        <div class="ms-film-poster-art">
-          <div class="ms-film-poster-glyph">SHR</div>
+      <div class="border-4 border-surface-variant p-6 card-hover reveal">
+        <div class="flex justify-between items-start mb-4">
+          <span class="text-on-surface-variant font-bold text-[10px] px-2 py-1 border border-surface-variant">Web Series</span>
+          <span class="text-on-surface-variant text-xs font-bold">—</span>
         </div>
-        <div class="ms-film-overlay">
-          <div class="ms-film-year">Web Series</div>
-          <div class="ms-film-title">Shoorveer</div>
-          <div class="ms-film-character">Supporting Role</div>
-          <div class="ms-film-meta">
-            <span class="ms-film-type">Digital Series</span>
-          </div>
-          <div class="ms-film-desc">
-            Expanding beyond film into digital storytelling, Shoorveer demonstrates Mayur's versatility across formats and narrative scales.
-          </div>
-        </div>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-2">Shoorveer</h3>
+        <p class="text-on-surface-variant font-bold text-sm uppercase mb-2">Supporting</p>
+        <p class="text-on-surface-variant text-sm">Web Series</p>
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── QUOTE ──────────────────────────────────────────────── -->
-  <section class="ms-quote">
-    <div class="container">
-      <div class="ms-quote-inner reveal">
-        <p class="ms-quote-text">
-          "Cinema is not just our craft; it is our classroom. Every character I play teaches me something about what it means to be human — and that lesson belongs to every student who walks into our school."
-        </p>
-        <div class="ms-quote-attr">— Mayur Soneji</div>
+<!-- Quote -->
+<section class="py-24 md:py-32 px-4 md:px-16 bg-surface-container-lowest border-y-4 border-primary relative overflow-hidden">
+  <div class="absolute top-0 left-4 md:left-16 text-[200px] md:text-[300px] font-syne font-extrabold text-primary opacity-10 leading-none select-none pointer-events-none">"</div>
+  <div class="max-w-4xl mx-auto relative z-10 text-center reveal">
+    <blockquote class="font-syne text-2xl md:text-4xl font-bold uppercase leading-tight mb-8">
+      "Cinema is not just our craft; it is our classroom. Every character I play teaches me something about what it means to be human — and that lesson belongs to every student who walks into our school."
+    </blockquote>
+    <p class="font-bold text-sm text-tertiary tracking-widest uppercase">— Mayur Soneji</p>
+  </div>
+</section>
+
+<!-- Connect -->
+<section class="py-24 md:py-32 px-4 md:px-16 bg-surface-container-low">
+  <div class="max-w-[1440px] mx-auto text-center reveal">
+    <p class="font-bold text-xs uppercase tracking-[0.3em] text-primary mb-3">Stay Connected</p>
+    <h2 class="font-syne text-4xl md:text-5xl font-extrabold uppercase mb-12">Follow <span class="text-secondary-container">Mayur</span></h2>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="https://www.instagram.com/actormayursoneji/" target="_blank" rel="noopener" class="bg-primary-container text-on-primary-container font-bold text-sm px-8 py-4 uppercase tracking-wider hover:bg-primary hover:text-background transition-colors">@actormayursoneji</a>
+      <a href="https://www.imdb.com/name/nm12721531/" target="_blank" rel="noopener" class="bg-secondary-container text-background font-bold text-sm px-8 py-4 uppercase tracking-wider hover:bg-secondary-fixed-dim transition-colors">IMDb Profile</a>
+      <a href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener" class="border-2 border-tertiary text-tertiary font-bold text-sm px-8 py-4 uppercase tracking-wider hover:bg-tertiary hover:text-background transition-colors">@hereandnowfilmschool</a>
+      <a href="contact.html" class="border-2 border-primary text-primary font-bold text-sm px-8 py-4 uppercase tracking-wider hover:bg-primary hover:text-background transition-colors">Work Together</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t-4 border-tertiary px-4 md:px-16 py-20 relative overflow-hidden">
+  <div class="absolute -bottom-8 left-0 font-syne text-[80px] md:text-[150px] font-extrabold text-primary opacity-[0.05] pointer-events-none select-none leading-none whitespace-nowrap">HERE&NOW</div>
+  <div class="max-w-[1440px] mx-auto relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <div>
+        <h4 class="font-syne text-xl font-extrabold uppercase mb-4">HERE&NOW<br/>FILMS</h4>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Gujarat-based creative company. Film school, production house, advertising, and event management — all under one roof.</p>
+      </div>
+      <div>
+        <p class="font-bold text-xs uppercase tracking-widest text-secondary-container mb-4">Navigate</p>
+        <nav class="flex flex-col gap-3 text-sm font-bold">
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="films.html">Films</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="mayur.html">Mayur Soneji</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="news.html">News</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <p class="font-bold text-xs uppercase tracking-widest text-tertiary mb-4">Our Work</p>
+        <nav class="flex flex-col gap-3 text-sm font-bold">
+          <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="https://www.youtube.com/watch?v=9knWZ9v2_ME" target="_blank">Vasundhara</a>
+          <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="films.html">Victor 303</a>
+          <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="https://www.youtube.com/watch?v=eoRU3PFXn1w" target="_blank">SBFC</a>
+          <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="films.html">Kasoombo</a>
+          <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="films.html">The Māḷu Show</a>
+        </nav>
+      </div>
+      <div>
+        <p class="font-bold text-xs uppercase tracking-widest text-primary mb-4">Connect</p>
+        <nav class="flex flex-col gap-3 text-sm font-bold">
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener">@hereandnowfilmschool</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/actormayursoneji/" target="_blank" rel="noopener">@actormayursoneji</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.imdb.com/name/nm12721531/" target="_blank" rel="noopener">IMDb — Mayur Soneji</a>
+        </nav>
+        <p class="text-on-surface-variant text-sm mt-4">Gujarat, India</p>
       </div>
     </div>
-  </section>
-
-  <!-- ── CONNECT ────────────────────────────────────────────── -->
-  <section class="ms-connect">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-eyebrow">Follow the Journey</div>
-        <h2 class="section-title">Connect with Mayur</h2>
-        <p style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--text-muted); margin-top:1rem; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;">
-          Stay close to the work — behind-the-scenes, craft, and the real texture of making Gujarati cinema.
-        </p>
-      </div>
-      <div class="ms-connect-links reveal" style="animation-delay:0.15s">
-        <a href="https://www.instagram.com/actormayursoneji" target="_blank" rel="noopener" class="ms-connect-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
-            <rect x="2" y="2" width="20" height="20" rx="5"/>
-            <circle cx="12" cy="12" r="5"/>
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-          </svg>
-          @actormayursoneji
-        </a>
-        <a href="https://www.imdb.com/name/nm12721531/" target="_blank" rel="noopener" class="ms-connect-link">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-            <path d="M14 2H10V22H14V2ZM4 8H0V22H4V8ZM20 8H16V22H20V8Z"/>
-          </svg>
-          IMDb Profile
-        </a>
-        <a href="https://www.instagram.com/hereandnowfilmschool" target="_blank" rel="noopener" class="ms-connect-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
-            <rect x="2" y="2" width="20" height="20" rx="5"/>
-            <circle cx="12" cy="12" r="5"/>
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-          </svg>
-          HereNow Films School
-        </a>
-        <a href="contact.html" class="ms-connect-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-          </svg>
-          Work Together
-        </a>
-      </div>
+    <div class="border-t-2 border-surface-variant pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest">© 2025 HereNow Films Pvt Ltd. All rights reserved.</p>
+      <p class="text-on-surface-variant text-xs">Gujarat, India</p>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────── -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-
-        <div>
-          <a href="index.html" style="text-decoration:none; display:block; margin-bottom:0.3rem;">
-            <span class="footer-brand-name">HERE•NOW FILMS</span>
-          </a>
-          <p class="footer-brand-tagline">Where Every Frame Tells a Story</p>
-          <div class="footer-social">
-            <a href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="footer-heading">Navigate</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="films.html">Films</a></li>
-            <li><a href="mayur.html">Mayur Soneji</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-heading">Our Work</h4>
-          <ul class="footer-links">
-            <li><a href="films.html">Victor 303</a></li>
-            <li><a href="films.html">Kasoombo</a></li>
-            <li><a href="films.html">Samandar</a></li>
-            <li><a href="films.html">Vasundhara Brand Film</a></li>
-            <li><a href="films.html">The Māḷu Show</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-heading">Contact</h4>
-          <ul class="footer-links">
-            <li><a href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener">@hereandnowfilmschool</a></li>
-          </ul>
-          <p style="font-family:'Cormorant Garamond',serif; font-size:0.9rem; color:var(--text-muted); margin-top:0.75rem; line-height:1.6;">Gujarat, India</p>
-        </div>
-
-      </div>
-      <div class="footer-bottom">
-        <span class="footer-bottom-logo">HNF</span>
-        <span>&copy; 2025 HereNow Films Pvt Ltd. All rights reserved.</span>
-        <span>Gujarat, India</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="main.js"></script>
-  <script>
-    /* Animate attribute bars on scroll */
-    (function() {
-      const fills = document.querySelectorAll('.ms-attribute-fill');
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animated');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.3 });
-      fills.forEach(function(fill) { observer.observe(fill); });
-    })();
-  </script>
-</body>
-</html>
+<script src="main.js"></script>
+</body></html>

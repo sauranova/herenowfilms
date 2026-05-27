@@ -1,350 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact HereNow Films Pvt Ltd — Gujarat's film school, production house, and advertising studio. Reach out for admissions, brand films, event management, and collaborations.">
-  <meta name="keywords" content="Contact HereNow Films, Gujarat film school, Mayur Soneji, brand film production, event management, acting workshop">
-  <meta property="og:title" content="Contact | HereNow Films Pvt Ltd">
-  <meta property="og:description" content="Get in touch with HereNow Films Pvt Ltd. We offer film school admissions, brand film production, event management, and advertising services from Gujarat, India.">
-  <meta property="og:type" content="website">
-  <title>Contact | Here Now Films</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Special+Elite&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact — HERE&NOW Films</title>
+<meta name="description" content="Get in touch with HereNow Films — film school admissions, brand film production, event management, and collaborations.">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "surface-container-high": "#2a2a2a",
+        "on-primary-container": "#fff2f3",
+        "tertiary": "#7ad0ff",
+        "surface-container-lowest": "#0e0e0e",
+        "surface-variant": "#353534",
+        "surface-tint": "#ffb1c6",
+        "on-secondary-container": "#725f00",
+        "secondary-container": "#ffdb3c",
+        "on-primary": "#650031",
+        "on-tertiary-container": "#eaf6ff",
+        "on-tertiary": "#003549",
+        "surface-container-low": "#1c1b1b",
+        "surface-container": "#201f1f",
+        "background": "#131313",
+        "surface-container-highest": "#353534",
+        "primary": "#ffb1c6",
+        "on-background": "#e5e2e1",
+        "on-surface-variant": "#e2bdc6",
+        "surface": "#131313",
+        "tertiary-container": "#0078a2",
+        "on-surface": "#e5e2e1",
+        "secondary-fixed-dim": "#e9c400",
+        "primary-container": "#d71471"
+      },
+      fontFamily: { "syne": ["Syne","sans-serif"], "mont": ["Montserrat","sans-serif"] }
+    }
+  }
+}
+</script>
+<style>
+html { scroll-behavior: smooth; }
+body { background: #131313; color: #e5e2e1; }
+.card-hover { transition: transform 0.3s ease; }
+.card-hover:hover { transform: scale(1.02); }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.cursor-dot { position: fixed; top: -4px; left: -4px; width: 8px; height: 8px; background: #ffb1c6; border-radius: 50%; pointer-events: none; z-index: 9999; transition: opacity 0.3s; }
+.cursor-ring { position: fixed; top: -18px; left: -18px; width: 36px; height: 36px; border: 2px solid rgba(255,177,198,0.4); border-radius: 50%; pointer-events: none; z-index: 9998; transition: width 0.3s, height 0.3s, opacity 0.3s; }
+.cursor-ring.hover { width: 52px; height: 52px; top: -26px; left: -26px; border-color: #d71471; }
+.nav-active { color: #ffb1c6 !important; border-bottom: 2px solid #ffb1c6; padding-bottom: 4px; }
+.nav-links { display: none; }
+.nav-links.open { display: flex; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: #131313; padding: 2rem; gap: 1.5rem; z-index: 40; }
+@media(min-width:768px) { .nav-links { display: flex !important; } }
+.hamburger span { display: block; width: 24px; height: 2px; background: #ffb1c6; margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+.form-success { margin-top: 1rem; padding: 1rem; border: 2px solid #7ad0ff; color: #7ad0ff; font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
+select option { background: #131313; color: #e5e2e1; }
+</style>
 </head>
-<body>
+<body class="font-mont antialiased overflow-x-hidden">
 
-  <!-- Custom Cursor -->
-  <div class="cursor"></div>
-  <div class="cursor-ring"></div>
-
-  <!-- Navigation -->
-  <nav class="nav scrolled">
-    <a href="index.html" class="nav-brand">
-      <span class="nav-brand-main">HERE•NOW</span>
-      <span class="nav-brand-sub">FILMS</span>
-    </a>
-    <button class="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="films.html">Films</a></li>
-      <li><a href="mayur.html">Mayur Soneji</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-    <a href="contact.html" class="btn btn-gold nav-cta">Inquire Now</a>
+<!-- Nav -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-16 py-4 bg-background/90 backdrop-blur-md border-b-4 border-primary">
+  <a href="index.html" class="font-syne text-2xl md:text-3xl font-extrabold tracking-tighter uppercase">HERE&NOW FILMS</a>
+  <nav class="nav-links gap-8 items-center text-sm font-bold uppercase tracking-wider">
+    <a class="nav-link hover:text-primary transition-colors" href="index.html">Home</a>
+    <a class="nav-link hover:text-primary transition-colors" href="films.html">Films</a>
+    <a class="nav-link hover:text-primary transition-colors" href="mayur.html">Mayur Soneji</a>
+    <a class="nav-link hover:text-primary transition-colors" href="about.html">About</a>
+    <a class="nav-link hover:text-primary transition-colors" href="news.html">News</a>
+    <a class="nav-link hover:text-primary transition-colors" href="contact.html">Contact</a>
   </nav>
+  <a href="contact.html" class="hidden md:block bg-primary text-background font-bold text-sm px-6 py-3 uppercase tracking-wider border-2 border-primary hover:bg-surface-tint active:scale-95 transition-all">Inquire Now</a>
+  <button class="hamburger md:hidden"><span></span><span></span><span></span></button>
+</header>
 
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <div class="container">
-      <p class="page-hero-breadcrumb">
-        <a href="index.html">Home</a>
-        <span>/</span>
-        Contact
-      </p>
-      <h1 class="page-hero-title">Get in Touch</h1>
-      <div class="ornament" style="max-width:280px; margin:1.5rem auto;">
-        <div class="ornament-line"></div>
-        <div class="ornament-diamond"></div>
-        <div class="ornament-line"></div>
+<main class="pt-[80px]">
+
+<!-- Hero -->
+<section class="py-24 md:py-32 px-4 md:px-16 border-b-4 border-surface-variant">
+  <div class="max-w-[1440px] mx-auto">
+    <p class="font-bold text-xs uppercase tracking-[0.3em] text-secondary-container mb-3">Reach Out</p>
+    <h1 class="font-syne text-5xl md:text-7xl font-extrabold uppercase mb-4">Get in <span class="text-primary">Touch</span></h1>
+    <p class="text-on-surface-variant text-lg max-w-2xl">Interested in our film school, a brand film, or a collaboration? We'd love to hear from you.</p>
+  </div>
+</section>
+
+<!-- Contact Grid -->
+<section class="py-24 md:py-32 px-4 md:px-16">
+  <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+
+    <!-- Info -->
+    <div class="reveal">
+      <div class="mb-10">
+        <p class="font-bold text-xs uppercase tracking-[0.3em] text-tertiary mb-3">Studio</p>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-2">HereNow Films Pvt Ltd</h3>
+        <p class="text-on-surface-variant">Gujarat, India</p>
       </div>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:300; font-style:italic; color:var(--text-secondary); max-width:480px; margin:0 auto; line-height:1.7;">
-        Interested in our film school, a brand film, or a collaboration? We'd love to hear from you.
-      </p>
-    </div>
-  </section>
 
-  <!-- Main Contact Section -->
-  <section class="section reveal">
-    <div class="container">
-      <div class="contact-grid">
+      <div class="mb-10">
+        <p class="font-bold text-xs uppercase tracking-[0.3em] text-primary mb-3">Email</p>
+        <a href="mailto:hello@herenowfilms.com" class="text-primary hover:text-surface-tint transition-colors text-lg font-bold">hello@herenowfilms.com</a>
+        <p class="text-on-surface-variant text-sm mt-1">For admissions, productions & partnerships</p>
+      </div>
 
-        <!-- LEFT COLUMN: Contact Info -->
-        <div class="contact-info-col">
-
-          <!-- Studio Address -->
-          <div class="contact-info-item">
-            <div class="contact-info-icon">&#128205;</div>
-            <div>
-              <div class="contact-info-label">Studio</div>
-              <div class="contact-info-value">
-                HereNow Films Pvt Ltd<br>
-                Gujarat, India<br>
-                @hereandnowfilmschool
-              </div>
-            </div>
-          </div>
-
-          <!-- Email -->
-          <div class="contact-info-item">
-            <div class="contact-info-icon">&#9993;</div>
-            <div>
-              <div class="contact-info-label">Email</div>
-              <div class="contact-info-value">
-                hello@herenowfilms.com<br>
-                <span style="font-size:.85rem; color:var(--text-muted);">For admissions, productions &amp; partnerships</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Follow Us -->
-          <div class="contact-info-item">
-            <div class="contact-info-icon">&#128247;</div>
-            <div>
-              <div class="contact-info-label">Follow Us</div>
-              <div class="contact-info-value">
-                <div style="margin-bottom:0.4rem;">
-                  <a href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener noreferrer" style="color:var(--gold-light); text-decoration:none; transition:color 0.3s;">@hereandnowfilmschool on Instagram</a>
-                </div>
-                <div>
-                  <a href="https://www.instagram.com/actormayursoneji/" target="_blank" rel="noopener noreferrer" style="color:var(--text-secondary); text-decoration:none; transition:color 0.3s;">@actormayursoneji · Founder</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Film School -->
-          <div class="contact-info-item">
-            <div class="contact-info-icon">&#127902;</div>
-            <div>
-              <div class="contact-info-label">Film School</div>
-              <div class="contact-info-value">
-                Admissions open year-round<br>
-                Batches start quarterly
-              </div>
-            </div>
-          </div>
-
-          <!-- Social Links -->
-          <div class="footer-social" style="margin-top:0.5rem;">
-            <a href="https://www.instagram.com/hereandnowfilmschool/" class="footer-social-link" aria-label="HereNow Films on Instagram" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18" height="18">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                <circle cx="12" cy="12" r="4"/>
-                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
-              </svg>
-            </a>
-            <a href="https://www.instagram.com/actormayursoneji/" class="footer-social-link" aria-label="Mayur Soneji on Instagram" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="18" height="18">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                <circle cx="12" cy="12" r="4"/>
-                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
-              </svg>
-            </a>
-          </div>
-
+      <div class="mb-10">
+        <p class="font-bold text-xs uppercase tracking-[0.3em] text-secondary-container mb-3">Follow Us</p>
+        <div class="flex flex-col gap-3">
+          <a href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener" class="text-on-surface hover:text-primary transition-colors font-bold">@hereandnowfilmschool</a>
+          <a href="https://www.instagram.com/actormayursoneji/" target="_blank" rel="noopener" class="text-on-surface hover:text-primary transition-colors font-bold">@actormayursoneji</a>
+          <a href="https://www.imdb.com/name/nm12721531/" target="_blank" rel="noopener" class="text-on-surface hover:text-tertiary transition-colors font-bold">IMDb — Mayur Soneji</a>
         </div>
+      </div>
 
-        <!-- RIGHT COLUMN: Contact Form -->
-        <div class="contact-form-col">
-          <form class="contact-form" novalidate>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="contact-first-name">First Name</label>
-                <input type="text" id="contact-first-name" name="first_name" class="form-input" placeholder="Your first name" required>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="contact-last-name">Last Name</label>
-                <input type="text" id="contact-last-name" name="last_name" class="form-input" placeholder="Your last name" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="contact-email">Email Address</label>
-              <input type="email" id="contact-email" name="email" class="form-input" placeholder="your@email.com" required>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="contact-phone">Phone (Optional)</label>
-              <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="+91 _____ _____">
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="contact-subject">Subject</label>
-              <select id="contact-subject" name="subject" class="form-select">
-                <option value="">Select inquiry type...</option>
-                <option value="admission">Film School Admission Enquiry</option>
-                <option value="brand-film">Brand Film / Commercial Production</option>
-                <option value="events">Event Management</option>
-                <option value="advertising">Advertising Collaboration</option>
-                <option value="workshop">Acting Workshop Enquiry</option>
-                <option value="general">General Inquiry</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="contact-message">Message</label>
-              <textarea id="contact-message" name="message" class="form-textarea" placeholder="Tell us about your project or inquiry..." required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-gold" style="width:100%;">
-              <span>Send Message</span>
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12,5 19,12 12,19"/>
-              </svg>
-            </button>
-
-          </form>
-        </div>
-
+      <div class="border-2 border-secondary-container p-6">
+        <span class="material-symbols-outlined text-secondary-container mb-2" style="font-variation-settings:'FILL' 1">school</span>
+        <h4 class="font-syne text-lg font-extrabold uppercase mb-1">Film School</h4>
+        <p class="text-on-surface-variant text-sm">Admissions open year-round. Batches start quarterly.</p>
       </div>
     </div>
-  </section>
 
-  <!-- Specific Inquiries Section -->
-  <section class="section section-dark reveal" aria-labelledby="inquiries-heading">
-    <div class="container">
-
-      <div class="section-header">
-        <p class="section-overline">Channels</p>
-        <h2 class="section-title" id="inquiries-heading">For Specific Inquiries</h2>
-        <div class="section-rule">
-          <div class="section-rule-diamond"></div>
+    <!-- Form -->
+    <div class="reveal">
+      <form id="contact-form" class="space-y-6">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block font-bold text-xs uppercase tracking-wider mb-2">First Name</label>
+            <input type="text" required class="w-full bg-surface-container border-2 border-surface-variant px-4 py-3 text-on-surface focus:border-primary focus:outline-none text-sm"/>
+          </div>
+          <div>
+            <label class="block font-bold text-xs uppercase tracking-wider mb-2">Last Name</label>
+            <input type="text" required class="w-full bg-surface-container border-2 border-surface-variant px-4 py-3 text-on-surface focus:border-primary focus:outline-none text-sm"/>
+          </div>
         </div>
-        <p class="section-desc">
-          Reach the right team directly. Every inquiry is reviewed by a dedicated specialist within 48 business hours.
-        </p>
-      </div>
-
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:2rem;">
-
-        <!-- Card 1: Film School Admissions -->
-        <article class="reveal reveal-delay-1" style="border:1px solid var(--border); padding:2rem; background:var(--bg-card); transition:border-color 0.3s, transform 0.35s var(--ease-smooth);" onmouseenter="this.style.borderColor='var(--border-mid)'; this.style.transform='translateY(-4px)';" onmouseleave="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)';">
-          <span style="display:block; font-size:2.5rem; margin-bottom:1rem;" aria-hidden="true">&#127916;</span>
-          <h3 style="font-family:'Cinzel',serif; font-size:1rem; font-weight:600; letter-spacing:0.06em; color:var(--text-primary); margin-bottom:1rem; line-height:1.3;">Film School Admissions</h3>
-          <p style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--text-secondary); line-height:1.75; margin-bottom:1.5rem;">
-            Interested in learning filmmaking? Reach out to enquire about our courses, batch schedules, and what it takes to train under a working Gujarati film actor.
-          </p>
-          <a href="mailto:admissions@herenowfilms.com" style="font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom:1px solid var(--border-mid); padding-bottom:2px; transition:border-color 0.3s, letter-spacing 0.3s;" onmouseenter="this.style.borderColor='var(--gold)'; this.style.letterSpacing='0.35em';" onmouseleave="this.style.borderColor='var(--border-mid)'; this.style.letterSpacing='0.25em';">admissions@herenowfilms.com</a>
-        </article>
-
-        <!-- Card 2: Brand Film & Production -->
-        <article class="reveal reveal-delay-2" style="border:1px solid var(--border); padding:2rem; background:var(--bg-card); transition:border-color 0.3s, transform 0.35s var(--ease-smooth);" onmouseenter="this.style.borderColor='var(--border-mid)'; this.style.transform='translateY(-4px)';" onmouseleave="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)';">
-          <span style="display:block; font-size:2.5rem; margin-bottom:1rem;" aria-hidden="true">&#127909;</span>
-          <h3 style="font-family:'Cinzel',serif; font-size:1rem; font-weight:600; letter-spacing:0.06em; color:var(--text-primary); margin-bottom:1rem; line-height:1.3;">Brand Film &amp; Production</h3>
-          <p style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--text-secondary); line-height:1.75; margin-bottom:1.5rem;">
-            Looking for cinematic quality brand content? HereNow Films produces feature-film-grade commercials and campaigns. Let's create your brand's story.
-          </p>
-          <a href="mailto:production@herenowfilms.com" style="font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom:1px solid var(--border-mid); padding-bottom:2px; transition:border-color 0.3s, letter-spacing 0.3s;" onmouseenter="this.style.borderColor='var(--gold)'; this.style.letterSpacing='0.35em';" onmouseleave="this.style.borderColor='var(--border-mid)'; this.style.letterSpacing='0.25em';">production@herenowfilms.com</a>
-        </article>
-
-        <!-- Card 3: Events & Advertising -->
-        <article class="reveal reveal-delay-3" style="border:1px solid var(--border); padding:2rem; background:var(--bg-card); transition:border-color 0.3s, transform 0.35s var(--ease-smooth);" onmouseenter="this.style.borderColor='var(--border-mid)'; this.style.transform='translateY(-4px)';" onmouseleave="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)';">
-          <span style="display:block; font-size:2.5rem; margin-bottom:1rem;" aria-hidden="true">&#128203;</span>
-          <h3 style="font-family:'Cinzel',serif; font-size:1rem; font-weight:600; letter-spacing:0.06em; color:var(--text-primary); margin-bottom:1rem; line-height:1.3;">Events &amp; Advertising</h3>
-          <p style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--text-secondary); line-height:1.75; margin-bottom:1.5rem;">
-            From creative event management to story-driven advertising campaigns — partner with HereNow Films for end-to-end creative services.
-          </p>
-          <a href="mailto:events@herenowfilms.com" style="font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom:1px solid var(--border-mid); padding-bottom:2px; transition:border-color 0.3s, letter-spacing 0.3s;" onmouseenter="this.style.borderColor='var(--gold)'; this.style.letterSpacing='0.35em';" onmouseleave="this.style.borderColor='var(--border-mid)'; this.style.letterSpacing='0.25em';">events@herenowfilms.com</a>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Map Placeholder Section -->
-  <section class="section reveal" aria-labelledby="location-heading">
-    <div class="container">
-
-      <div class="section-header" style="margin-bottom:2.5rem;">
-        <p class="section-overline">Find Us</p>
-        <h2 class="section-title" id="location-heading">Our Location</h2>
-        <div class="section-rule">
-          <div class="section-rule-diamond"></div>
-        </div>
-      </div>
-
-      <div style="width:100%; height:300px; background:var(--bg-card); border:1px solid var(--border); position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-        <!-- Radial glow -->
-        <div style="position:absolute; inset:0; background:radial-gradient(circle at 50% 50%, rgba(215,20,113,0.08) 0%, transparent 60%);"></div>
-
-        <!-- Crosshair lines -->
-        <div style="position:absolute; top:0; left:50%; width:1px; height:100%; background:var(--border);"></div>
-        <div style="position:absolute; top:50%; left:0; width:100%; height:1px; background:var(--border);"></div>
-
-        <!-- Corner accents -->
-        <div style="position:absolute; top:1.5rem; left:1.5rem; width:24px; height:24px; border-top:1px solid var(--border-mid); border-left:1px solid var(--border-mid);"></div>
-        <div style="position:absolute; top:1.5rem; right:1.5rem; width:24px; height:24px; border-top:1px solid var(--border-mid); border-right:1px solid var(--border-mid);"></div>
-        <div style="position:absolute; bottom:1.5rem; left:1.5rem; width:24px; height:24px; border-bottom:1px solid var(--border-mid); border-left:1px solid var(--border-mid);"></div>
-        <div style="position:absolute; bottom:1.5rem; right:1.5rem; width:24px; height:24px; border-bottom:1px solid var(--border-mid); border-right:1px solid var(--border-mid);"></div>
-
-        <!-- Location content -->
-        <div style="text-align:center; position:relative; z-index:1;">
-          <div style="font-size:2rem; margin-bottom:1rem;">&#128205;</div>
-          <div style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase;">Gujarat, India</div>
-          <div style="font-family:'Cormorant Garamond',serif; font-size:0.95rem; color:var(--text-muted); margin-top:0.4rem;">@hereandnowfilmschool · HereNow Films Pvt Ltd</div>
-          <a href="https://maps.google.com/?q=Gujarat+India" target="_blank" rel="noopener noreferrer" style="display:inline-block; margin-top:1.2rem; font-family:'Cinzel',serif; font-size:0.58rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; border:1px solid var(--border); padding:0.5rem 1.2rem; transition:border-color 0.3s, color 0.3s;" onmouseenter="this.style.borderColor='var(--gold)'; this.style.color='var(--gold)';" onmouseleave="this.style.borderColor='var(--border)'; this.style.color='var(--text-muted)';">Open in Maps</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-
         <div>
-          <a href="index.html" style="text-decoration:none; display:block; margin-bottom:0.3rem;">
-            <span class="footer-brand-name">HERE•NOW FILMS</span>
-          </a>
-          <p class="footer-brand-tagline">Where Every Frame Tells a Story</p>
-          <div class="footer-social">
-            <a href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
-            </a>
-          </div>
+          <label class="block font-bold text-xs uppercase tracking-wider mb-2">Email</label>
+          <input type="email" required class="w-full bg-surface-container border-2 border-surface-variant px-4 py-3 text-on-surface focus:border-primary focus:outline-none text-sm"/>
         </div>
-
         <div>
-          <h4 class="footer-heading">Navigate</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="films.html">Films</a></li>
-            <li><a href="mayur.html">Mayur Soneji</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+          <label class="block font-bold text-xs uppercase tracking-wider mb-2">Phone <span class="text-on-surface-variant">(optional)</span></label>
+          <input type="tel" class="w-full bg-surface-container border-2 border-surface-variant px-4 py-3 text-on-surface focus:border-primary focus:outline-none text-sm"/>
         </div>
-
         <div>
-          <h4 class="footer-heading">Our Work</h4>
-          <ul class="footer-links">
-            <li><a href="films.html">Victor 303</a></li>
-            <li><a href="films.html">Kasoombo</a></li>
-            <li><a href="films.html">Samandar</a></li>
-            <li><a href="films.html">Vasundhara Brand Film</a></li>
-            <li><a href="films.html">The Māḷu Show</a></li>
-          </ul>
+          <label class="block font-bold text-xs uppercase tracking-wider mb-2">Subject</label>
+          <select required class="w-full bg-surface-container border-2 border-surface-variant px-4 py-3 text-on-surface focus:border-primary focus:outline-none text-sm appearance-none">
+            <option value="">Select an inquiry type...</option>
+            <option>Film School Admission Enquiry</option>
+            <option>Brand Film / Commercial Production</option>
+            <option>Event Management</option>
+            <option>Advertising Collaboration</option>
+            <option>Acting Workshop Enquiry</option>
+            <option>General Inquiry</option>
+          </select>
         </div>
-
         <div>
-          <h4 class="footer-heading">Contact</h4>
-          <ul class="footer-links">
-            <li><a href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener">@hereandnowfilmschool</a></li>
-          </ul>
-          <p style="font-family:'Cormorant Garamond',serif; font-size:0.9rem; color:var(--text-muted); margin-top:0.75rem; line-height:1.6;">Gujarat, India</p>
+          <label class="block font-bold text-xs uppercase tracking-wider mb-2">Message</label>
+          <textarea required rows="5" class="w-full bg-surface-container border-2 border-surface-variant px-4 py-3 text-on-surface focus:border-primary focus:outline-none text-sm resize-none"></textarea>
         </div>
+        <button type="submit" class="w-full bg-primary-container text-on-primary-container font-bold text-sm py-4 uppercase tracking-wider hover:bg-primary hover:text-background transition-colors flex items-center justify-center gap-2">
+          Send Message <span class="material-symbols-outlined text-lg">arrow_forward</span>
+        </button>
+      </form>
+    </div>
 
+  </div>
+</section>
+
+<!-- Inquiry Cards -->
+<section class="py-16 px-4 md:px-16 bg-surface-container-low border-y-4 border-surface-variant">
+  <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="border-4 border-primary p-8 card-hover reveal">
+      <span class="material-symbols-outlined text-primary mb-4" style="font-variation-settings:'FILL' 1; font-size:40px">school</span>
+      <h3 class="font-syne text-xl font-extrabold uppercase mb-2">Film School Admissions</h3>
+      <a href="mailto:admissions@herenowfilms.com" class="text-primary hover:text-surface-tint transition-colors font-bold text-sm">admissions@herenowfilms.com</a>
+    </div>
+    <div class="border-4 border-secondary-container p-8 card-hover reveal">
+      <span class="material-symbols-outlined text-secondary-container mb-4" style="font-variation-settings:'FILL' 1; font-size:40px">movie</span>
+      <h3 class="font-syne text-xl font-extrabold uppercase mb-2">Brand Film & Production</h3>
+      <a href="mailto:production@herenowfilms.com" class="text-secondary-container hover:text-secondary-fixed-dim transition-colors font-bold text-sm">production@herenowfilms.com</a>
+    </div>
+    <div class="border-4 border-tertiary p-8 card-hover reveal">
+      <span class="material-symbols-outlined text-tertiary mb-4" style="font-variation-settings:'FILL' 1; font-size:40px">celebration</span>
+      <h3 class="font-syne text-xl font-extrabold uppercase mb-2">Events & Advertising</h3>
+      <a href="mailto:events@herenowfilms.com" class="text-tertiary hover:text-on-tertiary-container transition-colors font-bold text-sm">events@herenowfilms.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- Location -->
+<section class="py-24 md:py-32 px-4 md:px-16">
+  <div class="max-w-[1440px] mx-auto text-center reveal">
+    <span class="material-symbols-outlined text-primary mb-4" style="font-variation-settings:'FILL' 1; font-size:48px">location_on</span>
+    <h2 class="font-syne text-3xl md:text-4xl font-extrabold uppercase mb-2">Gujarat, <span class="text-tertiary">India</span></h2>
+    <p class="text-on-surface-variant mb-6">HereNow Films Pvt Ltd</p>
+    <a href="https://maps.google.com/?q=Gujarat+India" target="_blank" rel="noopener" class="border-2 border-tertiary text-tertiary font-bold text-sm px-8 py-3 uppercase tracking-wider hover:bg-tertiary hover:text-background transition-colors inline-block">Open in Maps</a>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t-4 border-tertiary px-4 md:px-16 py-20 relative overflow-hidden">
+  <div class="absolute -bottom-8 left-0 font-syne text-[80px] md:text-[150px] font-extrabold text-primary opacity-[0.05] pointer-events-none select-none leading-none whitespace-nowrap">HERE&NOW</div>
+  <div class="max-w-[1440px] mx-auto relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <div>
+        <h4 class="font-syne text-xl font-extrabold uppercase mb-4">HERE&NOW<br/>FILMS</h4>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Gujarat-based creative company. Film school, production house, advertising, and event management — all under one roof.</p>
       </div>
-      <div class="footer-bottom">
-        <span class="footer-bottom-logo">HNF</span>
-        <span>&copy; 2025 HereNow Films Pvt Ltd. All rights reserved.</span>
-        <span>Gujarat, India</span>
+      <div>
+        <p class="font-bold text-xs uppercase tracking-widest text-secondary-container mb-4">Navigate</p>
+        <nav class="flex flex-col gap-3 text-sm font-bold">
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="films.html">Films</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="mayur.html">Mayur Soneji</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="about.html">About</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="news.html">News</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <p class="font-bold text-xs uppercase tracking-widest text-tertiary mb-4">Our Work</p>
+        <nav class="flex flex-col gap-3 text-sm font-bold">
+          <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="https://www.youtube.com/watch?v=9knWZ9v2_ME" target="_blank">Vasundhara</a>
+          <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="films.html">Victor 303</a>
+          <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="https://www.youtube.com/watch?v=eoRU3PFXn1w" target="_blank">SBFC</a>
+          <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="films.html">Kasoombo</a>
+          <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="films.html">The Māḷu Show</a>
+        </nav>
+      </div>
+      <div>
+        <p class="font-bold text-xs uppercase tracking-widest text-primary mb-4">Connect</p>
+        <nav class="flex flex-col gap-3 text-sm font-bold">
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener">@hereandnowfilmschool</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/actormayursoneji/" target="_blank" rel="noopener">@actormayursoneji</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.imdb.com/name/nm12721531/" target="_blank" rel="noopener">IMDb — Mayur Soneji</a>
+        </nav>
+        <p class="text-on-surface-variant text-sm mt-4">Gujarat, India</p>
       </div>
     </div>
-  </footer>
+    <div class="border-t-2 border-surface-variant pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest">© 2025 HereNow Films Pvt Ltd. All rights reserved.</p>
+      <p class="text-on-surface-variant text-xs">Gujarat, India</p>
+    </div>
+  </div>
+</footer>
 
-  <script src="main.js"></script>
-</body>
-</html>
+<script src="main.js"></script>
+</body></html>
