@@ -2,7 +2,7 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Films — HERE&NOW Films</title>
+<title>Films — HERENOW Films</title>
 <meta name="description" content="Feature films, brand campaigns, television, and educational content by HereNow Films — from Gujarat to the world.">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet"/>
@@ -70,7 +70,7 @@ body { background: #131313; color: #e5e2e1; }
 
 <!-- Nav -->
 <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 md:px-16 py-4 bg-background/90 backdrop-blur-md border-b-4 border-primary">
-  <a href="index.html" class="font-syne text-2xl md:text-3xl font-extrabold tracking-tighter uppercase">HERE&NOW FILMS</a>
+  <a href="index.html" class="font-syne text-2xl md:text-3xl font-extrabold tracking-tighter uppercase">HERENOW FILMS</a>
   <nav class="nav-links gap-8 items-center text-sm font-bold uppercase tracking-wider">
     <a class="nav-link hover:text-primary transition-colors" href="index.html">Home</a>
     <a class="nav-link hover:text-primary transition-colors" href="films.html">Films</a>
@@ -99,8 +99,9 @@ body { background: #131313; color: #e5e2e1; }
   <div class="max-w-[1440px] mx-auto flex flex-wrap gap-3">
     <button class="filter-btn active border-2 border-primary text-primary font-bold text-xs px-5 py-2 uppercase tracking-wider" data-filter="all">All</button>
     <button class="filter-btn border-2 border-surface-variant text-on-surface-variant font-bold text-xs px-5 py-2 uppercase tracking-wider" data-filter="feature">Feature Films</button>
+    <button class="filter-btn border-2 border-surface-variant text-on-surface-variant font-bold text-xs px-5 py-2 uppercase tracking-wider" data-filter="web">Web Shows</button>
+    <button class="filter-btn border-2 border-surface-variant text-on-surface-variant font-bold text-xs px-5 py-2 uppercase tracking-wider" data-filter="theatre">Theatrical</button>
     <button class="filter-btn border-2 border-surface-variant text-on-surface-variant font-bold text-xs px-5 py-2 uppercase tracking-wider" data-filter="brand">Brand Films</button>
-    <button class="filter-btn border-2 border-surface-variant text-on-surface-variant font-bold text-xs px-5 py-2 uppercase tracking-wider" data-filter="tv">TV & Web</button>
     <button class="filter-btn border-2 border-surface-variant text-on-surface-variant font-bold text-xs px-5 py-2 uppercase tracking-wider" data-filter="education">Education</button>
   </div>
 </section>
@@ -174,14 +175,76 @@ body { background: #131313; color: #e5e2e1; }
       </div>
     </a>
 
-    <!-- The Malu Show -->
-    <div data-category="tv" class="md:col-span-4 relative overflow-hidden border-4 border-primary card-hover reveal">
+    <!-- Vitthal Teedi (Web Show) -->
+    <div data-category="web" class="md:col-span-4 relative overflow-hidden border-4 border-tertiary card-hover reveal">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#001018] to-[#002030]"></div>
+      <div class="relative z-10 p-6 flex flex-col justify-end min-h-[300px]">
+        <div class="absolute top-4 left-4"><span class="bg-tertiary/20 text-tertiary font-bold text-[10px] px-2 py-1 uppercase tracking-wider border border-tertiary">IMDb 9.1</span></div>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-tertiary mb-1">Web Show · 2021</p>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-1">Vitthal Teedi</h3>
+        <p class="text-on-surface-variant text-sm">Dir. Abhishek Jain · OHO Gujarati / ZEE5</p>
+      </div>
+    </div>
+
+    <!-- Shoorveer (Web Show) -->
+    <div data-category="web" class="md:col-span-4 relative overflow-hidden border-4 border-primary card-hover reveal">
       <div class="absolute inset-0 bg-gradient-to-br from-[#1a0500] to-[#3d0e00]"></div>
       <div class="relative z-10 p-6 flex flex-col justify-end min-h-[300px]">
-        <span class="inline-block bg-primary-container text-on-primary-container font-bold text-[10px] px-2 py-1 uppercase tracking-wider mb-2 self-start">On Air</span>
-        <p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Entertainment · TV · 2026</p>
-        <h3 class="font-syne text-2xl font-extrabold uppercase mb-1">The Māḷu Show</h3>
-        <p class="text-on-surface-variant text-sm">Premiered January 2026</p>
+        <span class="inline-block bg-primary-container text-on-primary-container font-bold text-[10px] px-2 py-1 uppercase tracking-wider mb-2 self-start">Streaming</span>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Web Series</p>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-1">Shoorveer</h3>
+        <p class="text-on-surface-variant text-sm">Streaming on JioHotstar</p>
+      </div>
+    </div>
+
+    <!-- Madha Ni Medi (Theatrical) -->
+    <div data-category="theatre" class="md:col-span-4 relative overflow-hidden border-4 border-secondary-container card-hover reveal">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#1a1500] to-[#2d2200]"></div>
+      <div class="relative z-10 p-6 flex flex-col justify-end min-h-[300px]">
+        <span class="material-symbols-outlined text-secondary-container/40 mb-4" style="font-size:48px; font-variation-settings:'FILL' 1">theater_comedy</span>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-secondary-container mb-1">Theatrical Production</p>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-1">Madha Ni Medi</h3>
+        <p class="text-on-surface-variant text-sm">HERENOW Theatre · Gujarati Stage</p>
+      </div>
+    </div>
+
+    <!-- Paatra -->
+    <div data-category="feature" class="md:col-span-3 relative overflow-hidden border-4 border-surface-variant card-hover reveal">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0a1a00] to-[#182d00]"></div>
+      <div class="relative z-10 p-6 flex flex-col justify-end min-h-[260px]">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-tertiary mb-1">Feature Film</p>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-1">Paatra</h3>
+        <p class="text-on-surface-variant text-sm">Gujarati</p>
+      </div>
+    </div>
+
+    <!-- Bharat Maro Desh Chhe -->
+    <div data-category="feature" class="md:col-span-3 relative overflow-hidden border-4 border-surface-variant card-hover reveal">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#001018] to-[#002030]"></div>
+      <div class="relative z-10 p-6 flex flex-col justify-end min-h-[260px]">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-secondary-container mb-1">Feature Film</p>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-1">Bharat Maro Desh Chhe</h3>
+        <p class="text-on-surface-variant text-sm">Gujarati</p>
+      </div>
+    </div>
+
+    <!-- Fafda Jalebi -->
+    <div data-category="feature" class="md:col-span-3 relative overflow-hidden border-4 border-surface-variant card-hover reveal">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#1a0800] to-[#3d1500]"></div>
+      <div class="relative z-10 p-6 flex flex-col justify-end min-h-[260px]">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Feature Film</p>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-1">Fafda Jalebi</h3>
+        <p class="text-on-surface-variant text-sm">Gujarati</p>
+      </div>
+    </div>
+
+    <!-- King of Salangpur -->
+    <div data-category="feature" class="md:col-span-3 relative overflow-hidden border-4 border-surface-variant card-hover reveal">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#1a0500] to-[#3d0e00]"></div>
+      <div class="relative z-10 p-6 flex flex-col justify-end min-h-[260px]">
+        <p class="text-[10px] font-bold uppercase tracking-widest text-tertiary mb-1">Feature Film</p>
+        <h3 class="font-syne text-2xl font-extrabold uppercase mb-1">King of Salangpur</h3>
+        <p class="text-on-surface-variant text-sm">Gujarati</p>
       </div>
     </div>
 
@@ -214,7 +277,7 @@ body { background: #131313; color: #e5e2e1; }
 <section class="py-16 px-4 md:px-16 border-y-4 border-surface-variant reveal">
   <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center">
     <div class="flex-1">
-      <h3 class="font-syne text-4xl md:text-5xl font-extrabold text-primary" data-count="5">0</h3>
+      <h3 class="font-syne text-4xl md:text-5xl font-extrabold text-primary" data-count="8">0</h3>
       <p class="font-bold text-xs uppercase tracking-widest mt-2">Feature Films</p>
     </div>
     <div class="hidden md:block w-1 h-16 bg-surface-variant"></div>
@@ -224,45 +287,13 @@ body { background: #131313; color: #e5e2e1; }
     </div>
     <div class="hidden md:block w-1 h-16 bg-surface-variant"></div>
     <div class="flex-1">
-      <h3 class="font-syne text-4xl md:text-5xl font-extrabold text-tertiary" data-count="4">0</h3>
+      <h3 class="font-syne text-4xl md:text-5xl font-extrabold text-tertiary" data-count="5">0</h3>
       <p class="font-bold text-xs uppercase tracking-widest mt-2">Content Categories</p>
     </div>
     <div class="hidden md:block w-1 h-16 bg-surface-variant"></div>
     <div class="flex-1">
       <h3 class="font-syne text-4xl md:text-5xl font-extrabold text-primary" data-count="2018">0</h3>
       <p class="font-bold text-xs uppercase tracking-widest mt-2">Founded</p>
-    </div>
-  </div>
-</section>
-
-<!-- Past Credits -->
-<section class="py-24 md:py-32 px-4 md:px-16">
-  <div class="max-w-[1440px] mx-auto">
-    <div class="mb-12 reveal">
-      <p class="font-bold text-xs uppercase tracking-[0.3em] text-on-surface-variant mb-3">Earlier Work</p>
-      <h2 class="font-syne text-3xl md:text-4xl font-extrabold uppercase">Past <span class="text-tertiary">Credits</span></h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="border-2 border-surface-variant p-6 card-hover reveal">
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="font-syne text-xl font-extrabold uppercase">Vitthal Teedi</h3>
-            <p class="text-on-surface-variant text-xs mt-1">2021 · Gujarati</p>
-          </div>
-          <span class="bg-tertiary/20 text-tertiary font-bold text-[10px] px-2 py-1 border border-tertiary">IMDb 9.1</span>
-        </div>
-        <p class="text-on-surface-variant text-sm">Supporting role · Dir. Abhishek Jain · OHO Gujarati / ZEE5</p>
-      </div>
-      <div class="border-2 border-surface-variant p-6 card-hover reveal">
-        <h3 class="font-syne text-xl font-extrabold uppercase mb-1">Bharat Maro Desh</h3>
-        <p class="text-on-surface-variant text-xs mb-4">Gujarati</p>
-        <p class="text-on-surface-variant text-sm">Supporting role</p>
-      </div>
-      <div class="border-2 border-surface-variant p-6 card-hover reveal">
-        <h3 class="font-syne text-xl font-extrabold uppercase mb-1">Chhe Paatra</h3>
-        <p class="text-on-surface-variant text-xs mb-4">Gujarati</p>
-        <p class="text-on-surface-variant text-sm">Supporting role</p>
-      </div>
     </div>
   </div>
 </section>
@@ -282,11 +313,11 @@ body { background: #131313; color: #e5e2e1; }
 
 <!-- Footer -->
 <footer class="bg-surface-container-lowest border-t-4 border-tertiary px-4 md:px-16 py-20 relative overflow-hidden">
-  <div class="absolute -bottom-8 left-0 font-syne text-[80px] md:text-[150px] font-extrabold text-primary opacity-[0.05] pointer-events-none select-none leading-none whitespace-nowrap">HERE&NOW</div>
+  <div class="absolute -bottom-8 left-0 font-syne text-[80px] md:text-[150px] font-extrabold text-primary opacity-[0.05] pointer-events-none select-none leading-none whitespace-nowrap">HERENOW</div>
   <div class="max-w-[1440px] mx-auto relative z-10">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
       <div>
-        <h4 class="font-syne text-xl font-extrabold uppercase mb-4">HERE&NOW<br/>FILMS</h4>
+        <h4 class="font-syne text-xl font-extrabold uppercase mb-4">HERENOW<br/>FILMS</h4>
         <p class="text-on-surface-variant text-sm leading-relaxed">Gujarat-based creative company. Film school, production house, advertising, and event management — all under one roof.</p>
       </div>
       <div>
@@ -307,22 +338,24 @@ body { background: #131313; color: #e5e2e1; }
           <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="films.html">Victor 303</a>
           <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="https://www.youtube.com/watch?v=eoRU3PFXn1w" target="_blank">SBFC</a>
           <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="films.html">Kasoombo</a>
-          <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="films.html">The Māḷu Show</a>
+          <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="films.html">Vitthal Teedi</a>
         </nav>
       </div>
       <div>
         <p class="font-bold text-xs uppercase tracking-widest text-primary mb-4">Connect</p>
         <nav class="flex flex-col gap-3 text-sm font-bold">
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="mailto:herenowfilmspvtltd@gmail.com">herenowfilmspvtltd@gmail.com</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors" href="tel:+918469972399">+91 84699 72399</a>
           <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/hereandnowfilmschool/" target="_blank" rel="noopener">@hereandnowfilmschool</a>
           <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/actormayursoneji/" target="_blank" rel="noopener">@actormayursoneji</a>
           <a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.imdb.com/name/nm12721531/" target="_blank" rel="noopener">IMDb — Mayur Soneji</a>
         </nav>
-        <p class="text-on-surface-variant text-sm mt-4">Gujarat, India</p>
+        <p class="text-on-surface-variant text-sm mt-4">311, Shyamal Infinity, JK Chowk,<br/>Uma Sadan Road, Rajkot, Gujarat</p>
       </div>
     </div>
     <div class="border-t-2 border-surface-variant pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
       <p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest">© 2025 HereNow Films Pvt Ltd. All rights reserved.</p>
-      <p class="text-on-surface-variant text-xs">Gujarat, India</p>
+      <p class="text-on-surface-variant text-xs">Rajkot, Gujarat, India</p>
     </div>
   </div>
 </footer>
